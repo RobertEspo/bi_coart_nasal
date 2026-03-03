@@ -1,0 +1,38 @@
+---
+title: "Summaries"
+author: "Robert Esposito"
+format: pdf
+---
+
+# @sole1991differentiating
+
+Spanish vowel nasalization varied with F1 (height) and possibly F2 (backness); in American English, coarticulatory nasalization varies inversely with speech rate. This indicates that Spanish vowel nasalization is phonetic, whereas AE vowel nasalization is phonemic. They used nasometer. Modeled Spanish & AE vowel nasalzation:
+
+American English:
+
+```
+a = d
+```
+
+Multiplicative effect (multiplied by a factor of 1).
+
+Spanish:
+
+```
+k(v):
+a=k(v)
+b=d-k(v)
+```
+
+Where k(v) is a constant value (incompressible beyond 40 ms) which depends on height of vowel.
+
+b = oral portion of the vowel
+
+d = total duration of the vowel sequence
+
+# 
+
+# References
+
+::: {#refs}
+:::

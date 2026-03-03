@@ -1,0 +1,188 @@
+/*-- scss:defaults --*/
+
+// Load fonts 
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charis+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+
+// Assign fonts
+$font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+$presentation-heading-font: "Yanone Kaffeesatz", "Palatino Linotype", "Book Antiqua", Palatino, sans-serif, !default;
+
+// headings
+$presentation-heading-color: #cc0033 !default;
+$presentation-heading-font-weight: 400 !default;
+$presentation-title-slide-text-align: left !default;
+$presentation-h1-font-size: 2.0em !default;
+$presentation-h2-font-size: 1.75em !default;
+$presentation-h3-font-size: 1.25em !default;
+$presentation-h3-color: #818181 !default;
+
+h3 {
+  color: #616161 !important;
+}
+
+// Other
+$body-bg: #fff;
+$body-color: #000;
+$link-color: #cc0033;
+$selection-bg: #818181 !default;
+$selection-color: #fff !default;
+
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+
+
+// Title slide
+#title-slide {
+  text-align: left;
+}
+
+.title {
+  padding-top: 200px !important;
+  font-size: 1.35em !important;
+}
+
+.subtitle {
+  color: #666666 !important;
+  font-size: 1.25em !important;
+  line-height: 0.75em !important;
+}
+
+.author {
+  text-align: left !important;
+  font-size: 0.90em !important;
+  line-height: 0.75em !important;
+} 
+
+.institute {
+  font-size: 0.90em !important;
+  line-height: 0.85em !important;
+}
+
+.date {
+  font-size: 0.90em !important;
+  line-height: 0.85em !important;
+}
+
+
+
+// Tables
+table, th, td {
+  border-top: 2px solid !important;
+  border-color: transparent !important;
+  line-height: 0.75em !important;
+  padding-bottom: 10px !important;
+}
+
+caption {
+  padding-top: 50px !important;
+  padding-left: 20px !important;
+  text-align: left !important;
+  color: #818181 !important;
+}
+
+
+/* emphasis */
+.emph {
+  color: #cc0033 !important;
+}
+
+/* Transition slide */
+.transition {
+  background-color: #272822 !important;
+}
+
+.transition h1 {
+  color: #cc0033 !important;
+}
+
+.transition p {
+  font-size: 1.6em !important;
+  font-family: "Yanone Kaffeesatz";
+}
+
+
+
+
+/* Final slide */
+.final {
+  background-color: #272822 !important;
+}
+
+.final h2 {
+  color: #cc0033 !important;
+  text-align: center;
+}
+
+.final h3 {
+  text-align: center;
+}
+
+.final p {
+  text-align: center;
+}
+
+.final table, th, td {
+  border-top: 2px solid;
+  border-color: #272822;
+  line-height: 0.75em !important;
+}
+
+.ipa {
+  //font-family: "Noto Sans" !important;
+  //font-family: "Charis Serif" !important;
+  font-family: "Gentium Plus" !important;
+}
+
+/* Make any text fancy */
+.p-font {
+  font-family: "Yanone Kaffeesatz" !important;
+}
+
+/* Custom breaks */
+.reveal mybr {
+  display: block !important; 
+  content: "" !important; 
+  line-height: 40px !important;
+}
+
+/* smaller code */
+.small-code code {
+  font-size: 0.8em !important;  
+}
+
+/* ru blockquote */
+ru-blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-left: solid 10px #cc0033;
+  background-color: #888888;
+  padding: 1em;
+  color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* Less space between list items */
+.closelist li {
+  margin-bottom: -5px !important;
+  line-height: 0.97em !important;
+}
+
+/* Less space between normal text */
+.closep p {
+  margin-bottom: -10px !important;
+  line-height: 0.85em !important;
+}

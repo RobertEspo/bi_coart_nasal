@@ -1,0 +1,9 @@
+project:
+  title: "REPLACE ME"
+  render:
+    - "*.qmd"
+    - "!./docs/lit/"
+    - "README.qmd"
+
+bibliography: ./lit/bi_coart_nasal.bib
+csl: ./lit/apa.csl

@@ -1,0 +1,18 @@
+title: Rutgers Presentation Template
+author: Joseph V. Casillas
+version: 0.0.1
+contributes:
+  formats: 
+    revealjs:
+      menu:
+        useTextContentForMissingTitles: false 
+        hideMissingTitles: true
+      #logo: logo.png
+      theme: [default, rutgers.scss]
+      template-partials:
+        - title-slide.html
+      slide-number: c/t
+      show-slide-number: all
+      preview-links: true
+      chalkboard: true
+      tbl-cap-location: bottom
