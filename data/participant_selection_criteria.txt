@@ -1,0 +1,10 @@
+interviewee_us_arrival_age == < 13 (not including 13, arbitrary cut off)
+interviewee_parent_language_01 == Spanish || English
+interviewee_parent_language_02 == Spanish || English
+interviewee_parent_language_03 == NA || Spanish
+interviewee_additional_language_01 == NA
+interviewee_additional_language_02 == NA
+interviewee_sex == female
+interviewee_generation_immigration == G1.5, G2, G2.5, G3, Gen1.5, Gen2
+
+UCSC_MB1_08 is missing Spanish interview, so English interview removed.
