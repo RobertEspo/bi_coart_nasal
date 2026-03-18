@@ -1,0 +1,170 @@
+---
+title: "Project Proposal"
+author: "Robert Esposito"
+format: pdf
+---
+
+```{r}
+#| include: false
+library(here)
+library(tidyverse)
+```
+
+# Introduction
+
+## Sociolinguistic History of California
+
+Today, California has the largest Hispanic population in the United States [@lopez2015california], characterized by long-standing Latino communities and newly arrived Latinos [@zentella1997growing]. The Spanish language first arrived in California in 1542, and a large Spanish presence was established by 1769 [@valdes2006spanish]. Between 1769 and 1848, the Spanish-speaking population dominated. They forced indigenous populations to convert to Catholicism, which was exclusively spread through the Spanish language, and baptized individuals were renamed [@haas1995conquests]. Toponyms were also given Spanish names, leading to California retaining some of the fewest toponyms of indigenous origin compared to Central America and Mexico [@blanco1971lengua].
+
+Anglophones arrived in California in 1846, shortly before Mexico ceded California to the United States as a result of the Mexican War in 1848. Over the course one year, 68,000 Anglophones arrived in California [@blanco1971lengua]. Although the Treaty of Guadalupe Hidalgo guaranteed rights of citizens within the ceded territory, including customs, religions, and languages [@schiffman2012linguistic], appeals based on the treaty for such rights were rejected in court [@adams2020perspectives]. Language rights for the Spanish-speaking population were deemed unnecessary under the belief that Californians would all speak English within 20 years [@blanco1971lengua]. The first California Constitution in 1849, following the Treaty, also included language rights, but when it was revised in 1878, not a single Spanish-speaking delegate was present and language rights for the Spanish-speaking population were revoked [@crawford1992language]; all publications of official proceedings were thus exclusively in English.
+
+By 1855, and reinforced in 1870 by a state law, the State Bureau of Public Instruction decreed that all school, both public and private, should take place exclusively in English [@macias2001minority]. Prior, Spanish had been used in 18% of all schooling [@valdes2006spanish]. By this point, there was a clear subjugation of the Spanish-speaking population: English was the official language of instruction in schools, English literacy was required for voting, and English was the language of government [@macias2001minority].
+
+In the early 1900s, children of Mexican workers experienced segregation in California schools, and by the 1920s, 10% of the state's total school population consisted of Mexican-origin students [@wollenberg1976all]. Anglo parents pushed for segregation at schools, swimming pools, theatres, and restaurants for fear that their children's education would be interrupted, justified on linguistic grounds. Although the 1946 lawsuit *Mendez v. Westminster* ruled against segregated schools, little, if any, action was taken to realize such a change [@valdes2006spanish].
+
+The 1870 statute mandating English-only education was repealed in 1967, and immigration to California rapidly increased between 1976 and 1995. One-third of the foreign population in the US resided in California by 1994. Between 1960 and 1990, total population of California almost doubled from 15.7 million to 29.7 million. During this time, strong anti-immigrant sentiments developed among the Anglo population, resulting in the passing of legislation declaring English the official language of California (Proposition 63, 1986), barring undocumented immigrants from receiving public health, education, and welfare benefits (Proposition 187, 1994), and returning to the prohibition of non-English language instruction (Proposition 227, 1998).
+
+In the 21st century, racial intolerance and exclusion, both related and unrelated to language, remain through overt and covert English-only policies. Mexican-origin populations remain segregated based on race, poverty, and language [@frankerberg2003multiracial]. For example, Mexican-origin students are placed into "ESL ghettos" [@valdes2004learning], or curriculum tracks from which English-language learners seldom exit due to complicated policies on language assessment nad student language reclassifications. Although California's legislation holds hostile language policies, federal policies demand that services in languages other than English must still be made available, and there is still federal pressure to maintain the safety and security of residents, regardless of legal status. 
+
+While Spanish is being maintained at the societal level because of the influx of new immigrants, at the individual and family level, there is a clear shift to English [@silva1994language]. Residents of long-standing Latino communities include both newly arrived Latinos who are monolingual in Spanish, bilingual Latinos who have acquired English and retain Spanish, young bilingual Latinos who have acquired both languages in their communities, and monolingual English-speaking Latinos. In these communities, individuals interact with one another using Spanish, English, or both. Choice of language depends on language proficiency, topic of interaction, setting, and relationship between speakers. Children born and raised in such communities acquire language ability to interact with newly arrived individuals and monolingual members of the majority Anglophone community [@zentella1997growing]. Spanish is primarily restricted to low-level functions and private sphere interactions [@valdes2004learning].
+
+## Nasals Segments
+    
+98% of the world's languages have a nasal consonant [@wals-18], while about 26% percent of them have contrastive nasal vowels [@wals-10], such as Brazilian Portuguese or French. Spanish and English are among the languages that do not have contrastive nasal vowels, but vowels still become nasalized in VN position due to timing gestures and biomechanical production of segments [@sampson1999nasal]. 'Nasalization' occurs when the velum lowers and velopharyngeal (VP) coupling occurs, such that the airstream flows through both the oro-pharyngeal and nasal tracts [@chafcouloff1999velopharyngeal; @barlaz2018oropharygneal]. When a vowel segment is followed by a nasal consonant, the velum anticipatorily lowers resulting in VP coupling and partial or full nasalization of the vowel [@zellou2022coarticulation]. @fig-gestural-overlap represents such a process in English (upper) and Spanish (lower).
+
+```{r}
+#| label: fig-gestural-overlap
+#| echo: false
+#| fig-cap: A representation of English (upper) and Spanish (lower) gestural timings of the word 'pan' (in Spanish, *bread*). Note that the nasal gesture overlaps the vowel gesture much more in English than in Spanish. Reproduced without permission from @goodin2016nasals.
+
+knitr::include_graphics(
+  here("figs", "gestural_overlap.jpg")
+  )
+```
+
+Coarticulatory vowel nasalization varies cross-linguistically [@clumeck1976patterns]. @sole1991differentiating found that Peninsular Spanish and American English differ in degree of nasalization based on speaking rate, concluding that nasalization in the former is phonetic and in the latter, phonological. These findings align with more recent observations of English monolingual populations that nasalization is extensive in American English [@kramer2019vowel], whereas many varieties of Spanish show a much shorter gestural overlap [@bongiovanni2021acoustic].
+
+## Heritage Speakers
+
+Heritage speaker populations have received comparatively little attention with regards to coarticulatory phenomena. It has been established that heritage speakers tend to maintain phonemic robustness [@kissling2018exploratory], but investigation of fine-grained coarticulatory phenomena will provide richer detail to the monolingual and bilingual grammars. In the current case, whether or not gestural timing is encoded in the grammar, in the form of coarticulatory vowel nasalization, can be determined. @beristain2023airflow investigated 16 heritage Mexican Spanish L2 English second generation speakers of varying dominance from the Chicagoland area using a nasometer to determine if they present distinct time setting patterns for nasality in English and Spanish /VN/ structures. An effect for language was found, but dominance, measured with the Bilingual Language Profile [BLP; @birdsong2012bilingual]. On the other hand, @amengual2018asymmetrical found an effect for dominance, again measured with the BLP, on the acoustic realization of laterals in 40 Spanish-English heritage speakers.
+
+# The CASP Model
+
+The Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @hawkins2024bilingualism] proposes five principles that underlie language behavior in bilinguals:
+
+(a) minimize learning effort
+(b) minimize processing effort
+(c) maximize expressive power
+(d) maximize efficiency in communication
+(e) maximize common ground
+
+Coarticulatory vowel nasalization, although allophonic in English, does not contrast in meaning with oral vowels in English or Spanish. As such, bilinguals may [minimize learning effort]{.smallcaps} by not encoding language-specific gestural timing information for nasals or (e) [maximize common ground]{.smallcaps} by sharing a single gestural timing representation for both languages. Given that previous research has demonstrated that bilinguals do maintain language-specific timing information [@beristain2023airflow], it is relevant that CASP also takes into account individual factors, such as language dominance, as it has also been found that gestural timing encoding varies with language dominance [@amengual2018asymmetrical]. However, such dominance effects have yet to be seen for coarticulatory vowel nasalization in English-Spanish bilinguals, most likely due to low sample size and little dominance variation in the sample [@beristain2023airflow].
+
+The CASP model has little to say about phonological or phonetic interactions in the bilingual grammar, but the principles may be applied to such a situation as this. For example, at the level of form @filipovic2019complex claim that high-proficiency bilingual speakers better control their output than low-proficiency bilinguals and "know" when they can [maximize common ground]{.smallcaps}, such that they will not produce "ungrammatical" structures in either language. In this case, high degree of vowel nasalization in Spanish will be seen as divergent behavior, while low degree of vowel nasalization in English will be equally seen as divergent.
+
+## Measures of Nasalization
+
+Degree of nasalization may be measured using a nasometer [@bressmann2021nasometry], but in its absence, a number of acoustic features have been proposed to correlate with nasalization such as reduction of formant amplitudes, widening of formant bandwidths, modulation of formant frequencies, shifting of spectral energy toward lower frequencies, and addition of poles (i.e., formants) and zeros (i.e., anti-formants) to the acoustic spectrum (@carignan2018using; @chen1997acoustic; @feng1996some; @styler2017acoustical, inter alia).
+
+In the current study, nasalization will be measured using A1-P0, as proposed by @chen1997acoustic. This measure is the difference between the amplitude A1 of the first formant and the amplitude P0 of the nasal peak at low frequencies, and it works particularly well for mid and low vowels. A1-P1 (where P1 is the amplitude of the nasal peak in vicinity to the first formant), on the other hand, more accurately captures nasalization in high vowels. @carignan2021practical compared various metrics with nasometer data across various English vowels and found that A1-P0 and A1-P1 had overall correlations with the nasometer "ground-truth" data of 0.66 and 0.37, respectively. However, looking at individual vowels demonstrates their distinct effectiveness: for /a/, A1-P0 had a correlation of 0.76 with the nasometer data; for /i/, A1-P1 had a correlation of 0.83. As such, in the absence of a nasometer, A1-P0 and A1-P1 provide an approximate metric to determine nasalization for specific vowels.
+
+# The Present Study
+
+The present investigation presents an opportunity to relate articulatory phonology, sociolinguistics, and bilingualism. Sequences of /VN/ in English and Spanish, specifically /an/ and /am/, are examined. Both Spanish and English possess /a/ in their phonological inventories, and A1-P0, as explained above, is an adequate measure of nasalization for this vowel, which will be used to identify onset of nasalization within the vowel. Spanish and English also differ in nasal consonant inventories, so the present investigation is limited to only those nasal consonants that are shared between the two phonological inventories. The variation investigated is degree of vowel nasalization, as measured with A1-P0. As such, the collected data was selected to answer the following research questions:
+
+1) Do bilinguals store language-specific timing information of gestures?
+
+Previous research has demonstrated that bilinguals do store language-specific timing information of gestures for nasals [@beristain2023airflow] and laterals [@amengual2018asymmetrical], so it is expected that those findings will be replicated here.
+
+2) Does bilingual dominance predict degree of nasalization in each language?
+
+The CASP model [@filipovic2019complex; @hawkins2024bilingualism] predicts that language dominance interacts with the [maximize common ground]{.smallcaps} and [maximize expressive power]{.smallcaps} principles, such that balanced bilinguals will show greater maintaince of language-specific patterns. English-dominant bilinguals will show greater nasalization in Spanish compared to the average, whereas Spanish-dominant bilinguals will show less nasalization in English compared to the average.
+    
+# Methodology
+
+## MuHSiC corpus
+
+The Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus is an open-access collection of sociolinguistic interviews with bilinguals speakers of diverse social backgrounds and regional origins across California. It is comprised of 600 interviews, approximately 70 minutes per speaker, divided evenly between English and Spanish. It has over 42,000 minutes of transcribed and phonologically segmented speech, 4,698,607 time-aligned word tokens, and 16,277,689 time-aligned phonological segments. Included participants, who were primarily university-aged, had a minimum residency of five consecutive years in California and at least conversational proficiency in both English and Spanish. Each participant completed a socio-demographic questionnaire and the Bilingual Language Profile (BLP) questionnaire [@birdsong2012bilingual].
+
+```{r}
+#| include: false
+
+# load interviewer/interviewee metadata 
+metadata <- read_csv(here("data","metadata.csv"))
+
+# load in selected participants list
+selected_participants <- read_lines(here("data", "selected_participants.txt"))
+
+# filter metadata for selected participants (will do this in R at some point
+# and print out the csv file)
+metadata_filtered <- metadata %>%
+  filter(
+    interviewee_participant_code %in% selected_participants)
+
+# find who has mexican origins
+birth_country_summary <- metadata_filtered %>%
+  select(
+    interviewee_participant_code,
+    interviewee_birth_country,
+    interviewee_mother_birth_country,
+    interviewee_father_birth_country,
+    interviewee_grandparent_birthplace_01,
+    interviewee_grandparent_birthplace_02,
+    interviewee_grandparent_birthplace_03,
+    interviewee_grandparent_birthplace_04,
+  ) %>%
+    summarize(
+    n_mexican_origin = sum(
+      if_any(
+        c(
+          interviewee_birth_country,
+          interviewee_mother_birth_country,
+          interviewee_father_birth_country,
+          interviewee_grandparent_birthplace_01,
+          interviewee_grandparent_birthplace_02,
+          interviewee_grandparent_birthplace_03,
+          interviewee_grandparent_birthplace_04,
+        ),
+        # include specific cities because some people did not put "mexico",
+        # but instead a city/region in mexico
+        ~ grepl("^mexico$|^méxico$|^sinaloa$|^jalisco$", ., ignore.case = TRUE)
+      )
+    )
+  ) %>%
+  as.data.frame()
+
+# calculate percentage
+percent_mexican_origin <- birth_country_summary[1,1] / count(as.data.frame(metadata_filtered))
+```
+
+This corpus provides high-quality audio that is ideal for acoustic analysis for the bilingual community under investigation. The interviewees in the corpus are primarily of Mexican origin, and in the current sample, `r percent_mexican_origin[1,1]`% are of Mexican origin (meaning that the interviewee, the interviewee's father, mother, or at least one of four grandparents was born in Mexico). This is important because the majority of Mexican varieties are non-nasalizing [@bongiovanni2021acoustic].
+
+## Token identification and extraction
+
+Tokens for analysis were identified as contiguous segments /an/ and /am/ using the time-aligned TextGrids in the MuHSiC corpus [@amengual2026muhsic]. English transcriptions use ARPABET [@klautau2001arpabet], so tokens were extracted using the ARPABET symbol "AAN" and "AAM", which correspond to the IPA sequences /an/ and /am/.
+
+## Inclusion/Exclusion Criteria
+  
+Participants from the corpus were filtered based on socio-demographic information provided: 1) the interviewee's age of US arrival was less than 13 years old (an arbitrary cut-off point based on early versus late L2 acquisition); 2) the interviewee's parents both spoke English and/or Spanish and they did not speak another language; 3) The interviewee did not speak an additional language to English and Spanish; 4) the interviewee identified their 'sex' as female, which was selected to limit anatomical differences and because there were more female interviews than male; and 5) the interviewee immigrant generation was identified as 1.5, 2, 2.5, or 3.
+
+Generation 1.5 are foreign-born individuals who arrived in the United States between the ages of 6 and 11. Generation 2 are individuals born in the US with both foreign-born parents. Generation 2.5 are individuals born in the US with one foreign-born parent. Generation 3 are individuals who, like their parents, were born in the US, and have foreign-born grandparents.
+
+Using these filters, 150 interviews (75 in Spanish and 75 in English from the same 75 participants) were identified.
+
+Sequences of /Nan/, where /N/ represents any nasal, will be excluded due to concerns of complete gestural overlap from the previous nasal segment. In the case of low audio quality or mistranscription, the token will be removed from the sample. Aside from these considerations, all sequences of /an/ and /am/ will be included in the analysis. 
+
+Currently, the number of tokens collected is not clear. I am currently running a script, `NasalityAutomeasure.praat` [@styler2015acoustical], to extract the necessary acoustic features, and it has been running for approximately a day and there is no way to tell up to where it has reached.
+
+## Data Coding
+
+Once all relevant tokens have been identified in the TextGrids, the script `NasalityAutomeasure.praat`[^1] [@styler2015acoustical] will be used to extract a number of acoustic features associated with nasality, among which is A1-P0, at 10 timepoints within the vowel. These acoustic features will be stored in a spreadsheet that also includes the participant label, language of the interview, word from which the sequence came, the surrounding segments (or word boundaries), and the participant's BLP score.
+
+[^1]: https://github.com/stylerw/styler_praat_scripts/tree/master/nasality_automeasure.
+
+# References
+
+::: {#refs}
+:::
+
+
+

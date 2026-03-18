@@ -2,11 +2,9 @@
 number of speakers = 150
 number of interviews = 150 in English, 150 in Spanish
 
-2. add 3rd tier to all textgrids. include only vowels. use script create_vowel_tier.praat. refer to the same script for how vowels were filtered. this was imperfect (e.g., it captured R), but this will be cleaned up later down the line.
+2. add 3rd tier to all textgrids. include only target vowels 'a' (Spanish) and 'aa0' 'aa1' 'aa2' (English). use script create_vowel_tier.praat.
 
-3. run nasality_automeasure. default settings except for number of values per segment = 10. Retrieve this script from here: https://github.com/stylerw/styler_praat_scripts/tree/master/nasality_automeasure
-
-formants set to 5500 because females.
+3. run nasality_automeasure. default settings except for number of values per segment = 10 & formant search set to 5500 because females. Retrieved script from: https://github.com/stylerw/styler_praat_scripts/tree/master/nasality_automeasure
 
 total number of tokens obtained = X
 tokens removed due to...
@@ -14,6 +12,7 @@ tokens removed due to...
 	error code 1 = 
 	error code 2 etc. =
 	not a vowel =
-n tokens in final sample =
+only CVC, NVN, CVN syllables retained following Dewhurst, M. (2024). Multi-dimensional Acoustic Analysis of Sociophonetic Nasality:
+	n tokens in final sample =
 
 NOTE: Only manipulated textgrids are included in this repo. Since audios were not modified at all and they take up a lot of space, folks reading this are referred to the publicly-available muhsic corpus for the audios.

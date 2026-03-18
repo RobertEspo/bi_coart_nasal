@@ -4,9 +4,11 @@ author: "Robert Esposito"
 format: pdf
 ---
 
-# @sole1991differentiating
+# Reference summaries
 
-Spanish vowel nasalization varied with F1 (height) and possibly F2 (backness); in American English, coarticulatory nasalization varies inversely with speech rate. This indicates that Spanish vowel nasalization is phonetic, whereas AE vowel nasalization is phonemic. They used nasometer. Modeled Spanish & AE vowel nasalzation:
+## @sole1991differentiating
+
+Spanish vowel nasalization varied with F1 (height) and possibly F2 (backness); in American English, coarticulatory nasalization varies inversely with speech rate. This indicates that Spanish vowel nasalization is phonetic, whereas AE vowel nasalization is phonemic. They used nasometer. Modeled Spanish & AE vowel nasalization:
 
 American English:
 
@@ -30,7 +32,156 @@ b = oral portion of the vowel
 
 d = total duration of the vowel sequence
 
-# 
+## @martinez2021bidirectional
+
+Nasometer.
+
+## @beristain2023airflow
+
+Nasometer.
+
+## @bongiovanni2021acoustic
+
+Nasometer. Dominican (velarizing) and Argentinian (non-velarizing) varieties. Coarticulatory vowel nasalization: Dominican nasalizes more, seems allophonic; Argentinian doesn't, it's phonetic.
+
+## @bongiovanni2021covariation
+
+Nasometer.
+
+## @martinez2021bidirectional
+
+Analysis of time settings of nasality in Spanish from a bilingual perspective. Brazilian Portuguese & Rioplatense Spanish.
+
+## @carignan2021practical
+
+These modifications include reduction of formant amplitudes, widening of formant bandwidths, modulation of formant frequencies, shifting of spectral energy toward lower frequencies, and addition of poles (i.e., formants) and zeros (i.e., anti-formants) to the acoustic spectrum (Carignan, 2018; Chen, 1997; Feng and Castelli, 1996; Fujimura and Lindqvist, 1971; Maeda, 1993; Styler, 2017, inter alia).
+
+Due to the myriad acoustic effects of VP coupling, many acoustic metrics have been proposed to capture and characterize the degree of nasalization in vowels. Some have focused on the general spectral shape (Feng and Castelli, 1996; Pruthi and Espy-Wilson, 2004), others have focused on spectral modifications in specific regions (Carignan, 2018; Hawkins and Stevens, 1985; Stevens et al., 1987), and yet others have focused on identifying nasal poles in the spectrum (Chen, 1997; Maeda, 1993).
+
+Proposes method of generating speaker-specific models to find acoustic correlates of nasalization: Nasalization from Acoustic Features (NAF).
+
+Formant range: male = 5k, female = 5.5k
+
+Scripts are available. Nasality automeasure script available. Check for BAM() specification, especially for autocorrelation function.
+
+A1-P0 is only good for within-speaker variation, not across-speaker. E.g., "Speakers nasalize more in NVN than NVC", but not "Speakers in Boston nasalize more than speakers in NYC". What about the same speaker in different languages?
+
+A1-P0 best for low vowels. A1-P1 works okay for high/front vowels. Of course the NAF works best, correlations with nasometer values between 0.88 and 0.95 for 11 vowels examined. Estimated nasal onset for NAF estimates is about 10 ms late.
+
+Use this paper to base the methodology of vowel nasalization onset time on. Probably focus on just one vowel.
+
+## @liu2019rnn
+
+Phonetically uninformed measures of vowel nasality for speech recognition.
+
+## @styler2017acoustical
+
+Comparison of acoustic measures for nasalization in French and English. A1-P0, F1 bandwidth, and spectral tilt were most effective at capturing nasalization, but there is language- and speaker-specific differences.
+
+A1-P0 is lower for nasalized /a/ than oral /a/. Of course you can just do P0-A1 to get the reverse.
+
+## @chen1997acoustic
+
+Baseline paper for A1-P0. Evaluation of A1-P0 and A1-P1 for quantifying nasalization, tested in English and French. A1-P1 more appropriate for high vowels; A1-P0 okay for the rest. 
+
+## @rothe2021durational
+
+Nasometer. Brazilian Portuguese stop/fricative effects on nasal vowels e.g., tensa vs tenta. Only looks at phonological vowels, not phonetic (e.g., cena). Nasalization duration remains constant regardless of post-vocalic consonant. Speaking rate influences coordination timing between beginning of vowel and beginning of nasalization; nasalization duration is retained more than oral portion. 
+
+## @planas2020study
+
+Peninsular Spanish phonetic vowel nasalization using nasometer.
+
+## @vaissiere2009problems
+
+Presentation on issues interpreting nasality data.
+
+## @beristain2023airflow
+
+Nasometer. Do heritage speakers show distinct time setting patterns for nasality in /VN/ structures of English & Spanish? Correlation between BLP & degree of anticipatory vowel nasalization?
+
+16 heritage Mexican Spanish L2 English. Second generation from Chicagoland area. Reading task.
+
+Spanish target vowels: /i e a o u/
+English target vowels: /i, e, ɑ, o, u/
+
+"Although these coarticulatory vowel nasalization patterns are not contrastive in either of the languages under study, they show distinct statuses in each language" (p. 15). Are coarticulatory features part of a "foreign accent"?
+
+## @sampson1999nasal
+
+Nasalization in vowels in VN position is unavoidable and universal due to timing gestures and biomechanical production of the segments.
+
+## @clumeck1976patterns
+
+Coarticulatory vowel nasalization varies cross-linguistically.
+
+## @goodin2016nasals
+
+Good representation of 'pan' from Articulatory Phonology. Reproduced in @beristain2023airflow.
+
+## @hawkins2024bilingualism
+
+Maximize Common Ground. Complex Adaptive System Principles (CASP; need to get specific references for initial proposal).
+
+## @beristain2022acquisition
+
+Compared /VN/ sequences in English-Spanish various bilingual groups. Heritage speakers resembled monolingual-like patterns in both languages.
+
+## @chang2021phonetics
+
+Focus on solely heritage speakers to not make group/population comparisons with a focus on individual-centric analyses due to vast variability and interspeaker variation.
+
+## @amengual2026muhsic
+
+Open-access corpus. Sociolinguistic interviews with bilingual speakers of diverse social backgrounds and regional origins across California. Comprised of 600 recordings, approximtaely 70 mins per speaker, divided evently between English and Spanish. Over 42,000 minutes of transcribed and phonologically segmented speech. 4,698,607 time-algiend word tokens and 16,277,689 time-aligned phonological segments. Data collection coordinated across three University of California campuses (UC Santa Cruz, UC Berkeley, & UCLA). Range of conversational domains, including migration narratives, family histories, traditional folklore, culinary practices, and metalinguistic reflections. Unique in its high audio quality.
+
+Participants have minimum residency of five consecutive years in California and conversational proficiency in both English and Spanish. Mostly university-aged.
+
+Collected sociodemographic information and Bilingual Language Profile scores [@birdsong2012bilingual].
+
+# Topic summaries with references
+
+## BLP information
+
+@birdsong2012bilingual developed BLP.
+
+@gertken201411 finds that it is a comprehensive and multidimesnional profile of bilingual experience based on self-reported data.
+
+Heritage speaker bilingualism degree associated with native-like performance [@amengual2018asymmetrical; @amengual2019type].
+
+## Sociolinguistic history of California bilingual community
+
+California, which has the largest Hispanic population in the United States [@lopez2015california].
+
+"Spanish is both a colonial language that pre-dates the establishment of English in California as well as an immigrant language that is spoken by recent arriving immigrants from Mexico and other Spanish-speaking countries" [@valdes2006spanish; p. 24].
+
+Spanish is stigmatized: seen as a "persistent threat to English, a language of the undocumented and the uneducated that has little value for ordinary Americans who do not plan to work in immigrant communities" [@valdes2006spanish; p. 24].
+
+Spanish language entered California in 1542 [@valdes2006spanish]. 1769 Spanish presence established [@valdes2006spanish].
+
+1769-1848, Spanish-speaking population dominated, characterized by forced conversation of indigenous population [@haas1995conquests]. Belief that indigenous population wouldn't adopt Christian values if they spoke their native languages [@blanco1971lengua]. Indigenous folks who learned Spanish were given special privileges [@haas1995conquests]. California retains some of the fewest toponyms of indigenous origin compared to Central America and Mexico, and many indigenous folks were renamed after being baptized [@blanco1971lengua].
+
+California became a province of the new Republic of Mexico in 1823. Mexico ceded California to USA as a result of the Mexican War in 1848. English arrived in California in 1846. Although the Treaty of Guadalupe Hidalgo included guarantees of rights of the citizens within the ceded territory, including customs, religions, and language [@schiffman2012linguistic], appeals based on the treaty for such rights were rejected in court [@adams2020perspectives]. Over the course of one year, 68k Anglo-Americans arrived in California, and language rights for Spanish-speaking folk were deemed unnecessary, as everyone in California would speak English within 20 years [@blanco1971lengua]. Althoguh the first California Constitution, ratified in 1849, included such rights for former Mexican citizens, not a single Spanish-speaking delegate was present when it was revised in 1878 [@crawford1992language], and language rights for Spanish-speaking folk were revoked; all publications of official proceedings would be exclusively in English.
+
+By 1855, and reinforced in 1870 by a state law, the State Bureau of Public Instruction decreed that all schooling, both public and private, should take place exclusively in English [@macias2001minority]. Spanish had been used in 18% of all schooling in both private and Catholic schools prior to 1855. By this point, there was clear subjugation of the Spanish-speaking population, since English was the official language of instruction in schools, English literacy was required for voting, and English was the language for administration of government [@macias2001minority].
+
+In the 21st century, racial intolerance and exclusion remain, both related and unrelated to language. There remain English-only policies, both overt and covert [@valdes2006spanish].
+
+Mexican-origin students, children of Mexican workers, were segregated in California schools beginning in 1910 [@wollenberg1976all]. By the 1920s, 10% of the state's total school population consisted of Mexican-origin students, motivating segregated schools, swimming pools, theatres, and restaurants. The segregation was in response to demands of white parents who feared for their children's education, and justified on linguistic grounds. In 1945, Mexican parents took legal action against segregated schools. Although **Mendez v. Westminster** in 1946 ruled that there was no justification for segregated schools, there were few, if any, real changes.
+
+Segregation of Mexican children continue today based on race, poverty, and language [@frankerberg2003multiracial]. Language-based tracking ensures that Mexican-origin students are kept separate from Anglophone white children. Overt policies on language assessmnet and student language reclassification create "ESL ghettos", or hermetically selaed tracks from which English-language learners are seldom exited [@valdes2004learning].
+
+The 1870 English-only in education statute was repealed in 1967. In 1976, the Chacon-Moscone Bilingual-Biculatural Act was passed to give non-English-speaking students access to the curriculum through their primary language, and required equal educational opportunities for limited or non-English-speaking children. In 1980, the Bilingua Education Improvement and Reform ACt mandated schools to provide bilingual education of limited Englsih-speaking students. However, both statutes expired in 1987 and were not renewed. Although on the surface they seem inclusionary, the statutes worked to justify and maintain segregation covertly. Negative attitudes were also felt from English-only supporters, who found bilingual education to be a waste of funds. Negative attitudes culminated in 1998 with the passing of Proposition 227, which returned to a prohibtion of non-English language instruction [@valdes2004learning].
+
+Immigration to California had rapid increase between 1976 and 1995. One-third of the foreign population in the US resided in California by 1994. Between 1960 and 1990, total population of California almost doubled from 15.7 million to 29.7 million. Strong anti-immigration sentiments developed among the Anglo population. During this time, many anti-immigrant, anti-Spanish-speaking and anti-Mexican legislative initiatives were proposed and approved. In 1986, Proposition 63 was passed, declaring English to be the official language of California. In 1994, Proposed 187 passed, designed to bar undocumented immigrants from receiving public health, education, and welfare benefits. 1996, Proposition 209 was passed, ending affirmative action by amending the California Constitution. Culminated in 1998 with passing of Proposition 227 [@valdes2004learning].
+
+Although California's legislation holds hostile language policies, federal policies demand that services in languages other than English must still be made available, and there is still federal pressure to maintain the safety and security of residents, regardless of legal status. 
+
+While Spanish is being maintained at the societal level because of hte influx of new immigrants, at the individual and family level, there is a clear shift to English [@silva1994language].
+
+Residents of long-standing Latino communities include both newly arrived Latinos who are monolingual in Spanish, bilingual Latinos who have acquried English and retain Spanish, young bilingual Latinos who have acquired both languages in their communities, and monolingual English-speaking Latinos. In these communities, individuals interact with one another using Spanish, English, or both. Choice of language depends on language proficiencies of individuals, topic of interaction, setting, and relationship between interlocutors. Children born and raised in such communities acquire language ability to interact with newly arrived individuals and monolingual members of the majority Anglophone community [@zentella1997growing].
+
+Spanish restricted to low-level functions and private sphere interactions. Many young people in bilingual communities may not acquire a full mastery of the registers and styles characteristic of Latino monolinguals.
 
 # References
 

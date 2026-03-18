@@ -6,10 +6,10 @@ endform
 
 # --- list of vowel labels ---
 # Spanish vowels
-spVowels$ = "a e i o u"
+spVowels$ = "a"
 
 # English ARPABET 2-letter codes (without stress number)
-enVowels$ = "AA AE AH AO AW AX AXR AY EH ER EY IH IX IY OW OY UH UW UX"
+enVowels$ = "AA"
 
 # combine into a single space-separated string
 vowelLabels$ = spVowels$ + " " + enVowels$
