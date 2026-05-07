@@ -1,0 +1,203 @@
+---
+title: "The Effect of Language Dominance on Anticipatory Nasalization"
+shorttitle: "Anticipatory Nasalization"
+author:
+  - name: Robert Esposito
+    corresponding: true
+    email: rme70@rutgers.edu
+    affiliations:
+      name: "Rutgers University"
+      department: Department of Spanish and Portuguese
+      address: 15 Seminary Pl.
+      city: New Brunswick
+      region: NJ
+      country: USA
+      postal-code: 08901
+author-note:
+  # Disclosures condensed to one paragraph, but you can start a field with two line breaks to break them up: \n\nNew Paragraph
+  disclosures:
+    # Example: This study was registered at X (Identifier Y).
+    study-registration: ~
+    # Acknowledge and cite data/materials to be shared.
+    data-sharing: ~
+    # Example: This article is based on data published in [Reference].
+    # Example: This article is based on the dissertation completed by [citation].  
+    related-report: ~
+    # Example: [Author name] has been a paid consultant for Corporation X, which funded this study.
+    conflict-of-interest: The authors have no conflicts of interest to disclose.
+    # Example: This study was supported by Grant [Grant Number] from [Funding Source].
+    financial-support: ~
+    # Example: The authors are grateful to [Person] for [Reason].
+    gratitude: ~
+    # Example. Because the authors are equal contributors, order of authorship was determined by a fair coin toss.
+    authorship-agreements: ~
+number-sections: false
+abstract: "Languages differ in their inventory of nasal segments, with only about a quarter of the world's languages having contrastive nasal vowels in their phonological inventory. However, all languages, to some degree, include phonetically-motivated nasalized vowels due to coarticulation in (NASAL-)VOWEL(-NASAL) ((N)V(N)) sequences, where at least one nasal consonant precedes or procedes the vowel. Languages differ in the degree of coarticulatory nasalization. For example, Mexican Spanish has been described as having fairly little nasal coarticulation, whereas American English has a relatively high degree of nasal coarticulation to the point that vowel nasalization has been said to be phonologized. It has been proposed that bilinguals must acquire these language-specific timings to sound native-like. The Complex Adaptive System Principles (CASP) model suggests that the bilingual brain pushes for convergence, especially in cases where the bilingual is not balanced, such that English-like timing patterns will occur in Spanish or vice-versa. To put this theory to the test, the present study used the The Multilingual Hispanic Speech in California (MuHSiC) corpus to investigate coarticulatory nasalization. The metric A1-P0 was used to measure nasalization in all tokens of English and Spanish /a/. It was found that language dominance, as measured by the Bilingual Language Profile, predicted different timing patterns for A1-P0."
+keywords: [bilingualism, coarticulation, nasal]
+floatsintext: true
+bibliography: "./lit/bi_coart_nasal.bib"
+format:
+  apaquarto-docx: default
+  apaquarto-html: default
+  apaquarto-pdf:
+    documentmode: man
+---
+```{r}
+#| label: setup
+#| include: false
+
+# Set document defaults
+knitr::opts_chunk$set(
+  cache.extra = knitr::rand_seed, 
+  fig.retina = 2, 
+  echo = F, 
+  message = F, 
+  warning = F,
+  fig.asp = 0.5625,
+  out.width = "100%",
+  dpi = 300, 
+  fig.path = 'figs/', 
+  dev = c("png", "pdf")
+  )
+
+# load libs
+source(here::here("scripts","r","00_libs.R"))
+source(here::here("scripts","r","06_manuscript_stats.R"))
+```
+
+INTRODUCTION GOES HERE.
+
+## Nasal Segments
+
+98% of the world's languages have at least one nasal consonant [@wals-18], while about 26% percent of all languages have contrastive nasal vowels [@wals-10], such as Brazilian Portuguese or French. Spanish and English are among the languages that do not have contrastive nasal vowels, but vowels still become nasalized in vowel-nasal (VN) syllables due to timing gestures and biomechanical production of segments [@sampson1999nasal]. 'Nasalization' occurs when the velum lowers and velopharyngeal (VP) coupling occurs, such that the airstream flows through both the oro-pharyngeal and nasal tracts [@chafcouloff1999velopharyngeal; @barlaz2018oropharygneal]. When a vowel segment is followed by a nasal consonant, the velum anticipatorily lowers resulting in VP coupling and partial or full nasalization of the vowel [@zellou2022coarticulation]. @fig-gestural-overlap represents such a process in English (upper) and Spanish (lower).
+
+```{r}
+#| label: fig-gestural-overlap
+#| echo: false
+#| fig-cap: A representation of English (upper) and Spanish (lower) gestural timings of the word 'pan' (in Spanish, *bread*). Note that the nasal gesture overlaps the vowel gesture much more in English than in Spanish. Reproduced without permission from @goodin2016nasals.
+
+knitr::include_graphics(
+  here("figs", "gestural_overlap.jpg")
+  )
+```
+
+Coarticulatory vowel nasalization varies cross-linguistically [@clumeck1976patterns]. @sole1991differentiating found that Peninsular Spanish and American English differ in degree of nasalization based on speaking rate, concluding that nasalization in the former is phonetic and in the latter, phonological. These findings align with more recent observations of English monolingual populations that nasalization is extensive in American English [@kramer2019vowel], whereas many varieties of Spanish show a much shorter gestural overlap [@bongiovanni2021acoustic].
+
+## Heritage Speakers
+
+Heritage speaker populations have received comparatively little attention with regards to coarticulatory phenomena. It has been established that heritage speakers tend to maintain phonemic robustness [@kissling2018exploratory], but investigation of fine-grained coarticulatory phenomena will provide richer detail to the monolingual and bilingual grammars. In the current case, whether or not gestural timing is encoded in the grammar, in the form of coarticulatory vowel nasalization, can be determined. @beristain2023airflow investigated 16 heritage Mexican Spanish L2 English second generation speakers of varying dominance from the Chicagoland area using a nasometer to determine if they present distinct time setting patterns for nasality in English and Spanish /VN/ structures. An effect for language was found, but not for language dominance, which was measured with the Bilingual Language Profile [BLP; @birdsong2012bilingual]. On the other hand, @amengual2018asymmetrical found an effect for dominance, again measured with the BLP, on the acoustic realization of laterals in 40 Spanish-English heritage speakers. 
+
+## CASP Model
+
+The Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @hawkins2024bilingualism] proposes five principles that underlie language behavior in bilinguals:
+
+(a) minimize learning effort
+(b) minimize processing effort
+(c) maximize expressive power
+(d) maximize efficiency in communication
+(e) maximize common ground
+
+Coarticulatory vowel nasalization, although allophonic in English, does not contrast in meaning with oral vowels in English or Spanish. As such, bilinguals may (a) [minimize learning effort]{.smallcaps} by not encoding language-specific gestural timing information for nasals or (e) [maximize common ground]{.smallcaps} by sharing a single gestural timing representation for both languages. Given that previous research has demonstrated that bilinguals do maintain language-specific timing information [@beristain2023airflow], it is relevant that CASP also takes into account individual factors, such as language dominance, as it has also been found that gestural timing encoding varies with language dominance [@amengual2018asymmetrical]. However, such dominance effects have yet to be seen for coarticulatory vowel nasalization in English-Spanish bilinguals, most likely due to low sample size and little dominance variation in the sample [@beristain2023airflow].
+
+The CASP model has little to say about phonological or phonetic interactions in the bilingual grammar, but the principles may be applied to such a situation as this. For example, at the level of form @filipovic2019complex claim that high-proficiency bilingual speakers better control their output than low-proficiency bilinguals and "know" when they can [maximize common ground]{.smallcaps}, such that they will not produce "ungrammatical" structures in either language. In this case, high degree of vowel nasalization in Spanish will be seen as divergent behavior, while low degree of vowel nasalization in English will be equally seen as divergent.
+
+## Measures of Nasalization
+
+Degree of nasalization may be measured using a nasometer [@bressmann2021nasometry], but in its absence, a number of acoustic features have been proposed to correlate with nasalization such as reduction of formant amplitudes, widening of formant bandwidths, modulation of formant frequencies, shifting of spectral energy toward lower frequencies, and addition of poles (i.e., formants) and zeros (i.e., anti-formants) to the acoustic spectrum (@carignan2018using; @chen1997acoustic; @feng1996some; @styler2017acoustical; inter alia).
+
+In the current study, nasalization will be measured using A1-P0 [@chen1997acoustic; @tamminga2015cross]. This measure is the difference between the amplitude A1 of the first formant and the amplitude P0 of the nasal peak at low frequencies, and it works particularly well for mid and low vowels. @carignan2021practical compared various metrics with nasometer data across various English vowels and found that A1-P0 had an overall correlation with the nasometer "ground-truth" data of 0.66. However, looking at individual vowels demonstrates that A1-P0 has a 0.76 correlation with the nasometer data for the vowel /a/. As such, in the absence of a nasometer, A1-P0 provides an approximate metric to determine nasalization for specific vowels.
+
+## History of Spanish-English Contact in California
+
+Today, California has the largest Hispanic population in the United States [@lopez2015california], characterized by long-standing Latino communities and newly arrived Latinos [@zentella1997growing]. While Spanish is being maintained at the societal level because of the influx of new immigrants, at the individual and family level, there is a clear shift to English [@silva1994language]. Residents of long-standing Latino communities include both newly arrived Latinos who are monolingual in Spanish, bilingual Latinos who have acquired English and retain Spanish, young bilingual Latinos who have acquired both languages in their communities, and monolingual English-speaking Latinos. In these communities, individuals interact with one another using Spanish, English, or both. Choice of language depends on language proficiency, topic of interaction, setting, and relationship between speakers. Children born and raised in such communities acquire language ability to interact with newly arrived individuals and monolingual members of the majority Anglophone community [@zentella1997growing]. Spanish is primarily restricted to low-level functions and private sphere interactions [@valdes2004learning].
+
+# The Present Study
+
+The present investigation presents an opportunity to relate articulatory phonology, sociolinguistics, and bilingualism. Sequences of vowel-nasal (VN) in American English and Mexican Spanish, specifically /an/ and /am/, are examined. Both Spanish and English possess /a/ in their phonological inventories, and A1-P0, as explained above, is an adequate measure of nasalization for this vowel, which will be used to identify degree of nasalization within the vowel. Spanish and English also differ in nasal consonant inventories, so the present investigation is limited to only those nasal consonants that are shared between the two phonological inventories. The variation investigated is degree of vowel nasalization, as measured with A1-P0. As such, the collected data was selected to answer the following research questions:
+
+1) Do bilinguals produce language-specific timing patterns of nasal gestures in English and Spanish?
+
+Previous research has demonstrated that bilinguals do produce language-specific timing information of gestures for nasals [@beristain2023airflow], which would be reflected in differing patterns of A1-P0 across the vowel in VN sequences. Specifically, more negative values of A1-P0, indicating greater degree of nasality, are expected in English, whereas more positive values are expected in Spanish. Such patterning would indicate that bilinguals store language-specific timing patterns in each of their languages.
+
+2) Does language dominance predict degree of nasalization in each language in /aN/ sequences?
+
+The CASP model [@filipovic2019complex; @hawkins2024bilingualism] predicts that language dominance interacts with the [maximize common ground]{.smallcaps} principle, such that balanced bilinguals will show greater maintenance of language-specific patterns than unbalanced bilinguals. It is hypothesized English-dominant bilinguals will show greater nasalization in Spanish compared to the average, whereas Spanish-dominant bilinguals will show less nasalization in English compared to the average. If it is found that unbalanced bilinguals produce timing patterns in line with their dominant language in their non-dominant language, such a finding would provide supporting evidence that language dominance interacts with the [maximize common ground]{.smallcaps} principle, even for differences that do not produce meaning contrasts.
+
+## The MuHSiC Corpus
+
+The Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus is an open-access collection of sociolinguistic interviews with bilinguals speakers of diverse social backgrounds and regional origins across California. It is comprised of 600 interviews, approximately 70 minutes per speaker, divided evenly between English and Spanish. It has over 42,000 minutes of transcribed and phonologically segmented speech, 4,698,607 time-aligned word tokens, and 16,277,689 time-aligned phonological segments. Included participants, who were primarily university-aged, had a minimum residency of five consecutive years in California and at least conversational proficiency in both English and Spanish. Each participant completed a socio-demographic questionnaire and the Bilingual Language Profile (BLP) questionnaire [@birdsong2012bilingual].
+
+```{r}
+#| label: fig-dominance
+#| echo: false
+#| fig-cap: Violin plot and boxplot of Bilingual Language Profile (BLP) scores in the sample. Possible BLP scores range from -218 (Spanish-dominant) to 218 (English-dominant). Jittered points represent individual BLP scores, color-graded based on dominance in relation to the possible score range.
+
+knitr::include_graphics(
+  here("figs", "dominance_distribution.png")
+  )
+
+```
+
+This corpus provides high-quality audio that is ideal for acoustic analysis for the bilingual community under investigation [@amengual2026muhsic]. The interviewees in the corpus are primarily of Mexican origin (meaning that the interviwee, her father, mother, or at least one of four grandparents was born in Mexico). Of the `r mex_origin[1,2]` females in the corpus, `r mex_origin[1,1]` are of Mexican origin, or approximately `r mex_origin[1,3]`% of female interviwees. This fact is important, as Mexican varieties of Spanish tend to present less coarticulatory nasalization than other varieties, such as Caribbean varieties [@bongiovanni2021acoustic].
+
+Participants from the corpus were filtered on specific socio-demographic information provided in the metadata. 1) Only interviewees who identified as `female`, which was selected to limit anatomical differences and to prevent interference of gender-related patterns of A1-P0 [@tamminga2015cross]. 2) The interviewee's parents both spoke English and/or Spanish and they did not speak another language to prevent any substantial input from another language, and thus possible influence on the English and Spanish language systems. 3) Related, the interviewee did not speak an additional language to English and Spanish to prevent any possible influence from another language system. Using these filters, `r num_interviewees` were identified for inclusion, each providing one interview in Spanish and one interview in English for a total of `r num_interviewees * 2` interviews. @fig-dominance shows distributional information of the interviewees' Bilingual Language Profile (BLP) scores.
+
+## Token Identification and Extraction
+
+Tokens for analysis were identified as contiguous segments /an/ and /am/ using the time-aligned TextGrids in the MuHSiC corpus [@amengual2026muhsic]. English transcriptions use ARPABET [@klautau2001arpabet], so tokens were extracted using the ARPABET symbol "AAN" and "AAM", which correspond to the IPA sequences /an/ and /am/. Despite other nasal consonants being available in English and Spanish, only /n/ and /m/ were selected as these overlap in their phonological inventories, whereas /ɲ/ is phonemic in Spanish but not in English, and /ŋ/ is phonemic in English but not in Spanish.
+
+`NasalityAutomeasure.praat`[^1] [@styler2015acoustical] was used in `Full-Auto` mode to extract A1-P0 and vowel duration, as well as a number of other acoustic features associated with nasality that were not used for analysis here, at 10 equidistant points within each target vowel. The formant range was set to 5500 Hz since the interviewees were female [@carignan2021practical]. Since high vowels were not included, the highest and lowest "sane" F1 values were set to 1000 Hz and 500 Hz. The script was modified to document the segment immediately before and after the target vowel.
+
+For the present analysis, only non-nasal consonant sonorant-/a/-nasal sequences (/Sam/ and /San/, where S = non-nasal consonant sonorant) were included. Non-nasal consonant sonorants were identified in the present sample as the following segments: [l r w ʎ ɾ]; all other segments present were identified as *not* non-nasal consonants. This decision had multiple motivators. First, a previous nasal segment would potentially induce the vowel to already be nasalized, preventing any clear change in A1-P0 shape over time. Second, a preliminary analysis found that A1-P0 patterned distinctly for sonorants versus non-sonorants in the first quarter of the vowel. GAMMs, unfortunately, cannot take these differences into account when estimating the effects of other predictors, which would lead to the two categories being undesirably pooled across conditions. Two GAMMs were fit which differed in whether sonorants or non-sonorants were included in the data, and it was found using AIC comparison [@burnham2004multimodel] that the sonorants-only model performed better[^2], motivating its use here.
+
+To clean the data, any tokens that were missing at least one of the ten measured values for whatever reason were removed. Then, following @tamminga2015cross, the following data cleaning procedure was performed to account for probable measurement errors: A1-P0 values were z-scored, and all values that exceeded $\pm$2.5 were removed, as well as all other values from their corresponding token; all vowels with a duration below 50 msec were removed. `r outlier_summary[1,2]` vowels were considered for inclusion, and based on the cleaning procedure, the final sample included `r outlier_summary[1,4]` vowels, retaining approximately `r round(outlier_summary[1,5] * 100, 2)`% of the data.
+
+[^1]: https://github.com/stylerw/styler_praat_scripts/tree/master/nasality_automeasure.
+[^2]: More information on model comparisons can be found here: https://github.com/RobertEspo/bi_coart_nasal.
+
+## Statistical Analysis
+
+A1-P0 measures have previously been used to study coarticulatory nasalization in English corpora to find differences across generation, gender, and variety, but the statistical models built were linear [@tamminga2015cross]. The current study used a generalized additive mixed model (GAMMs) for statistical inference to model the non-linear effects of time on A1-P0 in each vowel. Specifically, A1-P0 was the dependent variable. The linear predictors were `Bilingual Language Profile (BLP) score` (continuous) and standardized `vowel duration` [continuous; @tamminga2015cross]. Smooths were fit for `percent vowel` (A1-P0 values were extracted at 10 equidistant intervals in each vowel; this represents how the shape of the line changes over time) and `percent vowel by BLP score` (this represents how BLP score impacts the shape of the line over time). Due to high residual autocorrelation, an autoregressive error model, an AR1 error model that assumes autocorrelation between only adjacent points in a time series, was fit [@soskuthy2017generalised], which performed better than the original model based on AIC comparison. Models excluding each term were fit and compared using AIC, and it was found that the model defined here performed best[^3].
+
+[^2]: More information on model comparisons can be found here: https://github.com/RobertEspo/bi_coart_nasal.
+
+# Results
+
+
+
+```{r}
+#| label: fig-results
+#| echo: false
+#| fig-cap: Standardized A1-P0 values for VC (left) and VN (right) syllables for standardized Bilingual Language Profile scores.
+
+
+```
+
+
+
+# Discussion
+
+The present study combines articulatory phonology, sociolinguistics, and bilingualism to better understand whether or not language-specific gestural timing is stored in the bilingual brain, and if so, if language dominance impacts that storage. Specifically, coarticulatory vowel nasalization of /a/ was examined using the acoustic measure A1-P0. 
+
+With the current dataset, the first research question cannot be answered. The latter two research questions, on the other hand, can be examined in light of the findings.
+
+Regarding language dominance, the CASP model predicts that the [maximize common ground]{.smallcaps} and [maximize expressive power]{.smallcaps} principles are modulated by language dominance, such that balanced bilinguals will show greater maintenance of language-specific patterns. @beristain2023airflow did not find strong evidence that language dominance strongly predicted degree of nasalization in each language. However, the author's study included only 16 participants, as opposed to the current study which includes 150. Preliminary analysis suggests that, contrary to @beristain2023airflow['s] main findings, language dominance does impact coarticulatory vowel nasalization, such that Spanish-dominant bilinguals pattern distinctly from English-dominant and balanced bilinguals at the midpoint of the vowel, and all three groups are distinguished beyond the 75% point of the vowel. Specifically, Spanish-dominant bilinguals show less nasalization than English-dominant and balanced bilinguals until the 75% point, at which point Spanish-dominant bilinguals show the most nasalization, followed by balanced bilinguals, and finally English-dominant bilinguals. A possible explanation for this patterning is that English-dominant bilinguals are more likely to maintain oral airflow leading into the nasal consonant due to the phonological nature of vowel nasalization in English.
+
+Moving onto the individual effect patterns of each nasal consonant on the preceding vowel, it is seen that /m/ and /n/ pattern similarly to one another, but the palatal and velar nasal consonants diverge. The palatal nasal in particular starkly contrasts with the other three segments in the first 50% of the vowel. Currently, it is unable to be determined if nasal consonants possibly are overrepresented as the previous segment, which would cause the sharp dip in A1-P0 at the beginning of the vowel. 
+
+## Limitations and Future Directions
+
+The present study has a number of limitations. BLP metric is skewed towards English-dominance. Using standardized values means that we are looking at language dominance within the sample, not in general. To look outside the sample, we would need to look at the raw scores or get a more balanced sample. Perhaps such can be obtained by looking at the entire corpus.
+
+Currently, the present study limits itself to /a/ productions of female-identifying bilinguals. The corpus includes male-identifying individuals, and of course the whole gamut of vowels in both English and Spanish. As such, future work should move to include the rest of the corpus.
+
+Regarding the vowel choice, /a/ was chosen because it had the best performance for A1-P0. A1-P0, unfortunately, performs very poorly for high vowels. Given such, it would be best to find another method, such as machine training through `xgboost` [@chen2016xgboost], to incorporate a number of acoustic measures that correlate with nasality [@carignan2021practical].
+
+Finally, there are quite a number of transcription errors that must be corrected, as well as English words in the Spanish interviews that must be reviewed (and most likely excluded). In terms of long-term health of the corpus, it would be best to make the corrections in the `.TextGrid` files themselves. However, these corrected files would not be reuploaded to the corpus, but only kept locally, making the reach of the corrections not extend much beyond the present researcher. A possibly faster solution would be to extract words that include the token, plus the words before and after the word to which the token belongs, and then correct the alignment in that smaller file.
+
+## Conclusion
+
+# References
+
+::: {#refs}
+:::

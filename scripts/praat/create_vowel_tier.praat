@@ -1,6 +1,6 @@
 form Arguments
-    sentence input_directory C:\Users\rober\Desktop\bi_coart_nasal\corpus
-    sentence output_directory C:\Users\rober\Desktop\bi_coart_nasal\temp
+    sentence input_directory D:\bi_coart_nasal_corpus_spanish_2
+    sentence output_directory D:\bi_coart_nasal_corpus_spanish_2
     positive phone_tier 2
 endform
 

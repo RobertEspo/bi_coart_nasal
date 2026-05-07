@@ -139,6 +139,16 @@ Participants have minimum residency of five consecutive years in California and 
 
 Collected sociodemographic information and Bilingual Language Profile scores [@birdsong2012bilingual].
 
+## @tamminga2015cross
+
+"with attention given to placing the vowel-nasal boundary at the point of abrupt increase in amplitude of the higher formant frequencies in the spectrogram."
+
+"To exclude probable measurement errors without hand-checking each measurement, we removed measurements that were greater than 2.5 standard deviations from the grand mean, as well as vowels with a duration below 50 msec."
+
+"we subtract out each speaker’s mean A1-P0 in oral ((C)VC) contexts on a by-vowel basis, so that the measure we use reflects only the additional modulation to the A1-P0 measure introduced by nasal coarticulation and not speaker-specific voice quality parameters"
+
+Use normalized log vowel duration in model to account for longer vowelsh aving greater degree of nasal coarticulation. No need to include word frequency. Gender is important.
+
 # Topic summaries with references
 
 ## BLP information

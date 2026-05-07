@@ -3,6 +3,10 @@
     "summaries.tex": "1b70e418"
   },
   "manuscripts/project_proposal.qmd": {
-    "project_proposal.tex": "a599d4f4"
+    "project_proposal.tex": "a599d4f4",
+    "project_proposal.docx": "887821d1"
+  },
+  "bi_coart_nasal.qmd": {
+    "bi_coart_nasal.docx": "e75c8df3"
   }
 }
