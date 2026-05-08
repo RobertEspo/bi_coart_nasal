@@ -6,7 +6,7 @@ m_gam <- bam(
     s(point_vwlpct) +
     s(point_vwlpct, by = interviewee_final_blp_score, bs = "cr"),
 
-  data = sp_dat_tidy %>% filter(previous_sonorant == 1),
+  data = dat_female_tidy %>% filter(previous_sonorant == 1),
   method = "fREML",
   discrete = TRUE
 )
