@@ -1,3 +1,5 @@
+###############################################################################
+
 ### Load libs ###
 
 source(here::here("scripts","r","00_libs.R"))
@@ -6,7 +8,7 @@ source(here::here("scripts","r","00_libs.R"))
 # too large, so all of the following is wrapped in if(FALSE){} so that it
 # doesn't run. 
 # Only the very bottom of the script runs, which loads in the tidied data
-# from a csv.
+# from a csv & models.
 
 if (FALSE) {
 
@@ -102,12 +104,30 @@ gc()
 
 
 ### load second english acoustic data file
-# unfortunately can't upload the file to github because it's too large
+### load first english acoustic data file
+dat_en_females_02_raw <- (read_delim('D:/bi_coart_nasal_corpus_data/raw_dat_females_en_02.txt'))
 
-# putting this here for when i get more english data
-raw_dat_females_en <- dat_en_females_01_clean
+non_numeric_cols <- c(
+  "filename", "word", "vowel", "p0_id",
+  "attempted_fix", "status", "errorflag", 
+  "previous_segment", "following_segment"
+)
 
-rm(dat_en_females_01_clean)
+numeric_cols <- setdiff(names(dat_en_females_02_raw), non_numeric_cols)
+
+dat_en_females_02_clean <- dat_en_females_02_raw %>%
+  mutate(across(all_of(numeric_cols), ~ suppressWarnings(as.numeric(.)))) %>%
+  filter(if_all(all_of(numeric_cols), ~ !is.na(.)))
+
+rm(dat_en_females_02_raw, non_numeric_cols, numeric_cols)
+gc()
+
+### Now bind the two dfs
+
+raw_dat_females_en <- bind_rows(dat_en_females_01_clean,
+                                dat_en_females_02_clean)
+
+rm(dat_en_females_01_clean, dat_en_females_02_clean)
 gc()
 
 ###############################################################################
@@ -135,6 +155,9 @@ nasals <- c("M", "N", "NG", # english
 
 non_nasal_sonorants <- c("Y", "L", "R", "W", # english
                          "l", "r", "ɾ", "j", "w", "ʎ", "ʝ") # spanish
+
+unvoiced_stop <- c("P","T","K", # english
+                   "p","t","k") # spanish
 
 vowels <- c(
   "AA1", "AA2", "AE0", "AE1", "AE2", "AH0", "AH1", "AO0", "AO1", "AO2", #english
@@ -180,9 +203,11 @@ dat_females_w_outliers <- raw_dat_females %>%
     )) %>%
   
   # for the current study, we're looking only at CVN syllables with /m/ or /n/
+  # and only when the C is an unvoiced stop
   filter(syllable == "CVN",
          following_segment %in% c("M","N", # english
-                                  "m","n")) %>% # spanish
+                                  "m","n"), # spanish
+         previous_segment %in% unvoiced_stop) %>% 
   left_join(metadata) %>% # add the metadata
   # some people don't have BLP scores
   # which means that NAs must be removed again
@@ -234,18 +259,26 @@ dat_female_tidy <- dat_females_w_outliers %>%
 ###############################################################################
 ### Some descriptive stats about the trimming procedure
 
-outlier_summary <- data.frame(
-  n_with_outliers_values = nrow(dat_females_w_outliers),
-  n_with_outliers_tokens = nrow(dat_females_w_outliers) / 10,
-  
-  n_without_outliers_values = nrow(dat_female_tidy),
-  n_without_outliers_tokens = nrow(dat_female_tidy) / 10,
-  
-  proportion_retained = nrow(dat_female_tidy) / nrow(dat_females_w_outliers)
-)
+outlier_summary <- full_join( 
+  dat_females_w_outliers %>% count(language, name = "n_values_with") %>% 
+    mutate(n_tokens_with = n_values_with / 10), dat_female_tidy %>% 
+    count(language, name = "n_values_without") %>% 
+    mutate(n_tokens_without = n_values_without / 10), by = "language" 
+  ) %>% 
+  mutate(proportion_retained = n_values_without / n_values_with) %>% 
+  bind_rows(
+    summarise( ., language = "Total", 
+               n_values_with = sum(n_values_with, na.rm = TRUE),
+               n_tokens_with = sum(n_tokens_with, na.rm = TRUE),
+               n_values_without = sum(n_values_without, na.rm = TRUE),
+               n_tokens_without = sum(n_tokens_without, na.rm = TRUE),
+               proportion_retained = n_values_without / n_values_with) 
+    )
 
 # Clean up the environment!
-rm(raw_dat_females, dat_females_w_outliers, nasals, non_nasal_sonorants, vowels, metadata)
+rm(raw_dat_females, dat_females_w_outliers, 
+   nasals, non_nasal_sonorants, 
+   vowels, unvoiced_stop, metadata)
 gc()
 
 ###############################################################################
@@ -261,11 +294,42 @@ write.csv(outlier_summary, here("data","outlier_summary.csv"), row.names = FALSE
 
 if (TRUE) {
 
-dat_female_tidy <- read_csv(dat_female_tidy, 
-                            here("data","dat_female_tidy.csv"), 
-                            row.names = FALSE)
+  # load in the tidied data
+  # remember this is CVN syllables, where the C
+  # is an unvoiced stop
+  
+  dat_female_tidy <- read_csv(here("data","dat_female_tidy.csv")) %>%
+    # clean up col types
+    mutate(
+      filename = as.factor(filename),
+      word = as.factor(word),
+      previous_segment = as.factor(previous_segment),
+      following_segment = as.factor(following_segment),
+      following_nasal = as.factor(following_nasal),
+      previous_nasal = as.factor(previous_nasal),
+      participant = as.factor(participant),
+      language = as.factor(language),
+      syllable = as.factor(syllable))
 
-outlier_summaries <- read_csv(outlier_summary, 
-                              here("data","outlier_summary.csv"), 
-                              row.names = FALSE)
+  # load in info about outliers
+  
+  outlier_summary <- read_csv(here("data","outlier_summary.csv"))
+
+  # load in models
+  
+  files <- list.files(here::here("models"),
+                      pattern = "\\.rds$",
+                      full.names = TRUE)
+  
+  models <- setNames(
+    lapply(files, readRDS),
+    tools::file_path_sans_ext(basename(files))
+  )
+  
+  list2env(models, envir = .GlobalEnv)
+  
+  # Clean up the environment!
+  rm(models, files)
+  gc()
+
 }

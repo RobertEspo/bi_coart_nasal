@@ -32,7 +32,7 @@ author-note:
     # Example. Because the authors are equal contributors, order of authorship was determined by a fair coin toss.
     authorship-agreements: ~
 number-sections: false
-abstract: "Languages differ in their inventory of nasal segments, with only about a quarter of the world's languages having contrastive nasal vowels in their phonological inventory. However, all languages, to some degree, include phonetically-motivated nasalized vowels due to coarticulation in (NASAL-)VOWEL(-NASAL) ((N)V(N)) sequences, where at least one nasal consonant precedes or procedes the vowel. Languages differ in the degree of coarticulatory nasalization. For example, Mexican Spanish has been described as having fairly little nasal coarticulation, whereas American English has a relatively high degree of nasal coarticulation to the point that vowel nasalization has been said to be phonologized. It has been proposed that bilinguals must acquire these language-specific timings to sound native-like. The Complex Adaptive System Principles (CASP) model suggests that the bilingual brain pushes for convergence, especially in cases where the bilingual is not balanced, such that English-like timing patterns will occur in Spanish or vice-versa. To put this theory to the test, the present study used the The Multilingual Hispanic Speech in California (MuHSiC) corpus to investigate coarticulatory nasalization. The metric A1-P0 was used to measure nasalization in all tokens of English and Spanish /a/. It was found that language dominance, as measured by the Bilingual Language Profile, predicted different timing patterns for A1-P0."
+abstract: "Languages differ in their inventory of nasal segments, with only about a quarter of the world's languages having contrastive nasal vowels in their phonological inventory. However, all languages, to some degree, include phonetically-motivated nasalized vowels due to coarticulation in (NASAL-)VOWEL(-NASAL) ((N)V(N)) sequences, where at least one nasal consonant precedes or procedes the vowel. Languages differ in the degree of coarticulatory nasalization. For example, Mexican Spanish has been described as having fairly little nasal coarticulation, whereas American English has a relatively high degree of nasal coarticulation to the point that vowel nasalization has been said to be phonologized. It has been proposed that bilinguals must acquire these language-specific timings to sound native-like. The Complex Adaptive System Principles (CASP) model suggests that the bilingual brain pushes for convergence, especially in cases where the bilingual is not balanced, such that English-like timing patterns will occur in Spanish or vice-versa. To put this theory to the test, the present study used the The Multilingual Hispanic Speech in California (MuHSiC) corpus to investigate coarticulatory nasalization. The metric A1-P0 was used to measure nasalization at 10 points within vowels in /VN/ sequences, and then generalized additive linear models (GAMs) were fit to the time series. Differences in coarticulatory nasalization patterns were found across languages, but language dominance did not predict nasalization patterns within languages. These findings align with previous research on the effects of dominance on coarticulatory nasalization in Spanish-English bilinguals, but they go against the preedictions of the CASP model."
 keywords: [bilingualism, coarticulation, nasal]
 floatsintext: true
 bibliography: "./lit/bi_coart_nasal.bib"
@@ -61,27 +61,10 @@ knitr::opts_chunk$set(
   )
 
 # load libs
-source(here::here("scripts","r","00_libs.R"))
 source(here::here("scripts","r","06_manuscript_stats.R"))
 ```
 
-INTRODUCTION GOES HERE.
-
-## Nasal Segments
-
-98% of the world's languages have at least one nasal consonant [@wals-18], while about 26% percent of all languages have contrastive nasal vowels [@wals-10], such as Brazilian Portuguese or French. Spanish and English are among the languages that do not have contrastive nasal vowels, but vowels still become nasalized in vowel-nasal (VN) syllables due to timing gestures and biomechanical production of segments [@sampson1999nasal]. 'Nasalization' occurs when the velum lowers and velopharyngeal (VP) coupling occurs, such that the airstream flows through both the oro-pharyngeal and nasal tracts [@chafcouloff1999velopharyngeal; @barlaz2018oropharygneal]. When a vowel segment is followed by a nasal consonant, the velum anticipatorily lowers resulting in VP coupling and partial or full nasalization of the vowel [@zellou2022coarticulation]. @fig-gestural-overlap represents such a process in English (upper) and Spanish (lower).
-
-```{r}
-#| label: fig-gestural-overlap
-#| echo: false
-#| fig-cap: A representation of English (upper) and Spanish (lower) gestural timings of the word 'pan' (in Spanish, *bread*). Note that the nasal gesture overlaps the vowel gesture much more in English than in Spanish. Reproduced without permission from @goodin2016nasals.
-
-knitr::include_graphics(
-  here("figs", "gestural_overlap.jpg")
-  )
-```
-
-Coarticulatory vowel nasalization varies cross-linguistically [@clumeck1976patterns]. @sole1991differentiating found that Peninsular Spanish and American English differ in degree of nasalization based on speaking rate, concluding that nasalization in the former is phonetic and in the latter, phonological. These findings align with more recent observations of English monolingual populations that nasalization is extensive in American English [@kramer2019vowel], whereas many varieties of Spanish show a much shorter gestural overlap [@bongiovanni2021acoustic].
+Bilinguals have the task of acquiring two different phonological systems. Parts of a language's phonological system is non-contrastive, such as nasality for vowels in English and Spanish [@wals-18]. Although vowel nasality is non-contrastive in these languages, vowels become partially or fully nasalized when adjacent to a nasal consonant [@sampson1999nasal]. Monolingual varieties of (American) English and (Peninsular) Spanish have been found to differ in timing patterns for coarticulatory vowel nasalization, such that English is, on the whole, more nasal than Spanish [@sole1991differentiating]. These differences have been replicated in American English-Mexican Spanish bilinguals [@beristain2023airflow], but it is currently unclear if individual differences, such as language dominance, may impact the production (and, inferentially, the storage) of these language-specific timing patterns. The Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @hawkins2024bilingualism] predicts that language dominance interacts with the maxim [maximize common ground]{.smallcaps}, such that balanced bilinguals will produce more monolingual-like patterns in each of their languages, whereas unbalanced bilinguals will favor forms in both languages that converge on forms in their dominant language. As far as the author knows, there has not yet been research explicitly testing the CASP model on phonological or phonetic data. The current study addresses this gap by investigating coarticulatory vowel nasalization in simultaneous and early sequential bilinguals in the Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus. A1-P0, a measure of nasalization that has previously been used on corpora [@chen1997acoustic; @tamminga2015cross], was extracted at 10 points within vowels in /VN/ sequences and used to fit non-linear models that addressed differences across and within languages. The present study combines sociophonetic, bilingual, and articulatory phonology domains to better understand what phonological information is stored in a bilingual's language systems.
 
 ## Heritage Speakers
 
@@ -100,6 +83,22 @@ The Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @haw
 Coarticulatory vowel nasalization, although allophonic in English, does not contrast in meaning with oral vowels in English or Spanish. As such, bilinguals may (a) [minimize learning effort]{.smallcaps} by not encoding language-specific gestural timing information for nasals or (e) [maximize common ground]{.smallcaps} by sharing a single gestural timing representation for both languages. Given that previous research has demonstrated that bilinguals do maintain language-specific timing information [@beristain2023airflow], it is relevant that CASP also takes into account individual factors, such as language dominance, as it has also been found that gestural timing encoding varies with language dominance [@amengual2018asymmetrical]. However, such dominance effects have yet to be seen for coarticulatory vowel nasalization in English-Spanish bilinguals, most likely due to low sample size and little dominance variation in the sample [@beristain2023airflow].
 
 The CASP model has little to say about phonological or phonetic interactions in the bilingual grammar, but the principles may be applied to such a situation as this. For example, at the level of form @filipovic2019complex claim that high-proficiency bilingual speakers better control their output than low-proficiency bilinguals and "know" when they can [maximize common ground]{.smallcaps}, such that they will not produce "ungrammatical" structures in either language. In this case, high degree of vowel nasalization in Spanish will be seen as divergent behavior, while low degree of vowel nasalization in English will be equally seen as divergent.
+
+## Nasal Segments
+
+98% of the world's languages have at least one nasal consonant [@wals-18], while about 26% percent of all languages have contrastive nasal vowels [@wals-10], such as Brazilian Portuguese or French. Spanish and English are among the languages that do not have contrastive nasal vowels, but vowels still become nasalized in vowel-nasal (VN) syllables due to timing gestures and biomechanical production of segments [@sampson1999nasal]. 'Nasalization' occurs when the velum lowers and velopharyngeal (VP) coupling occurs, such that the airstream flows through both the oro-pharyngeal and nasal tracts [@chafcouloff1999velopharyngeal; @barlaz2018oropharygneal]. When a vowel segment is followed by a nasal consonant, the velum anticipatorily lowers resulting in VP coupling and partial or full nasalization of the vowel [@zellou2022coarticulation]. @fig-gestural-overlap represents such a process in English (upper) and Spanish (lower).
+
+```{r}
+#| label: fig-gestural-overlap
+#| echo: false
+#| fig-cap: A representation of English (upper) and Spanish (lower) gestural timings of the word 'pan' (in Spanish, *bread*). Note that the nasal gesture overlaps the vowel gesture much more in English than in Spanish. Reproduced without permission from @goodin2016nasals.
+
+knitr::include_graphics(
+  here("figs", "gestural_overlap.jpg")
+  )
+```
+
+Coarticulatory vowel nasalization varies cross-linguistically [@clumeck1976patterns]. @sole1991differentiating found that Peninsular Spanish and American English differ in degree of nasalization based on speaking rate, concluding that nasalization in the former is phonetic and in the latter, phonological. These findings align with more recent observations of English monolingual populations that nasalization is extensive in American English [@kramer2019vowel], whereas many varieties of Spanish show a much shorter gestural overlap [@bongiovanni2021acoustic].
 
 ## Measures of Nasalization
 
@@ -133,7 +132,7 @@ The Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] cor
 #| fig-cap: Violin plot and boxplot of Bilingual Language Profile (BLP) scores in the sample. Possible BLP scores range from -218 (Spanish-dominant) to 218 (English-dominant). Jittered points represent individual BLP scores, color-graded based on dominance in relation to the possible score range.
 
 knitr::include_graphics(
-  here("figs", "dominance_distribution.png")
+  here("figs", "p_dominance_distribution.png")
   )
 
 ```
@@ -148,54 +147,223 @@ Tokens for analysis were identified as contiguous segments /an/ and /am/ using t
 
 `NasalityAutomeasure.praat`[^1] [@styler2015acoustical] was used in `Full-Auto` mode to extract A1-P0 and vowel duration, as well as a number of other acoustic features associated with nasality that were not used for analysis here, at 10 equidistant points within each target vowel. The formant range was set to 5500 Hz since the interviewees were female [@carignan2021practical]. Since high vowels were not included, the highest and lowest "sane" F1 values were set to 1000 Hz and 500 Hz. The script was modified to document the segment immediately before and after the target vowel.
 
-For the present analysis, only non-nasal consonant sonorant-/a/-nasal sequences (/Sam/ and /San/, where S = non-nasal consonant sonorant) were included. Non-nasal consonant sonorants were identified in the present sample as the following segments: [l r w ʎ ɾ]; all other segments present were identified as *not* non-nasal consonants. This decision had multiple motivators. First, a previous nasal segment would potentially induce the vowel to already be nasalized, preventing any clear change in A1-P0 shape over time. Second, a preliminary analysis found that A1-P0 patterned distinctly for sonorants versus non-sonorants in the first quarter of the vowel. GAMMs, unfortunately, cannot take these differences into account when estimating the effects of other predictors, which would lead to the two categories being undesirably pooled across conditions. Two GAMMs were fit which differed in whether sonorants or non-sonorants were included in the data, and it was found using AIC comparison [@burnham2004multimodel] that the sonorants-only model performed better[^2], motivating its use here.
+For the present analysis, only sequences of an unvoiced stops /p t k/, /a/, and a nasal consonant (henceforth represented as /TaN/) were included for analysis. This decision had multiple motivators. First, a previous nasal segment would potentially induce the vowel to already be nasalized, preventing any clear change in A1-P0 shape over time. Second, a preliminary analysis found that A1-P0 patterned distinctly in the first quarter of the vowel depending on the previous segment. As the present analysis is not interested in how the previous segment impacts A1-P0, the unvoiced stops were chosen due to (mostly) clear segment boundaries compared to, for example, fricatives or sonorants. Furthermore, the unvoiced stops form a more homogeneous class of sounds both within and across languages compared to, for example, voiced stops (which are often realized as approximants in Spanish) or sonorants (the segments of which differ between English and Spanish).
 
-To clean the data, any tokens that were missing at least one of the ten measured values for whatever reason were removed. Then, following @tamminga2015cross, the following data cleaning procedure was performed to account for probable measurement errors: A1-P0 values were z-scored, and all values that exceeded $\pm$2.5 were removed, as well as all other values from their corresponding token; all vowels with a duration below 50 msec were removed. `r outlier_summary[1,2]` vowels were considered for inclusion, and based on the cleaning procedure, the final sample included `r outlier_summary[1,4]` vowels, retaining approximately `r round(outlier_summary[1,5] * 100, 2)`% of the data.
+To clean the data, any tokens that were missing at least one of the ten measured values for whatever reason, such as the Praat script being unable to extract a value and returning `--undefined--`, were removed. Then, following @tamminga2015cross, the following data cleaning procedure was performed to account for probable measurement errors: 1) all vowels with a duration below 50 msec were removed. 2) A1-P0 values were z-scored for each language, and all values that exceeded $\pm$2.5 were removed, as well as all other values from their corresponding token. The decision to standardize A1-P0 within language is because it is assumed that the distribution of A1-P0 values are different for English and Spanish. @tbl-outliers provides information regarding outlier removal and number of tokens in the final dataset. A high proportion of data was removed from the dataset. It was deemed more imperative to remove possible measurement errors than to retain them due to the high number of tokens that remained.
+
+```{r }
+#| label: tbl-outliers
+#| tbl-cap: Descriptive information on outliers for the English dataset, Spanish dataset, and the combined dataset.
+
+ft_outliers <- flextable(outlier_summary) %>%
+  colformat_double(j = c("n_values_with", "n_tokens_with",
+                          "n_values_without", "n_tokens_without"),
+                   digits = 0) %>%  
+  bold(part = "header") %>%
+    colformat_double(j = "proportion_retained", digits = 2) %>%
+  autofit() %>%
+  set_header_labels(
+  language = "Language",
+  n_values_with = "Original Values",
+  n_tokens_with = "Original Tokens",
+  n_values_without = "Trimmed Values",
+  n_tokens_without = "Trimmed Tokens",
+  proportion_retained = "Proportion Retained"
+)
+
+ft_outliers
+
+```
 
 [^1]: https://github.com/stylerw/styler_praat_scripts/tree/master/nasality_automeasure.
-[^2]: More information on model comparisons can be found here: https://github.com/RobertEspo/bi_coart_nasal.
 
 ## Statistical Analysis
 
-A1-P0 measures have previously been used to study coarticulatory nasalization in English corpora to find differences across generation, gender, and variety, but the statistical models built were linear [@tamminga2015cross]. The current study used a generalized additive mixed model (GAMMs) for statistical inference to model the non-linear effects of time on A1-P0 in each vowel. Specifically, A1-P0 was the dependent variable. The linear predictors were `Bilingual Language Profile (BLP) score` (continuous) and standardized `vowel duration` [continuous; @tamminga2015cross]. Smooths were fit for `percent vowel` (A1-P0 values were extracted at 10 equidistant intervals in each vowel; this represents how the shape of the line changes over time) and `percent vowel by BLP score` (this represents how BLP score impacts the shape of the line over time). Due to high residual autocorrelation, an autoregressive error model, an AR1 error model that assumes autocorrelation between only adjacent points in a time series, was fit [@soskuthy2017generalised], which performed better than the original model based on AIC comparison. Models excluding each term were fit and compared using AIC, and it was found that the model defined here performed best[^3].
+A1-P0 has previously been used to study coarticulatory nasalization in English corpora to find differences across generation, gender, and variety, but the statistical models built were linear [@tamminga2015cross]. The current study used a generalized additive mixed model (GAMMs) for statistical inference to model the non-linear effects of time on A1-P0 in each vowel. All GAMMs were fit using the `mgcv` package [@wood2017generalized; @wood2011fast] in R [@r2025].
+
+Specifically, A1-P0 was the dependent variable, taken along the duration of Spanish and English /a/ vowels at 10 equidistant points from simultaneous and early-sequential bilinguals in the Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus. The final models reported here were compared with simpler models using the function `compareML()` [@itsadug2025r]. Only models that had significantly better fits than the ones they were compared to are reported here. Furthermore, all reported models are AR1 error models, which were fit due to high residual autocorrelation, typical of time series data [@soskuthy2017generalised]. All AR1 error models were compared to their corresponding non-AR1 model, again using `compareML()`[^2].
+
+The first model reported addresses Research Question 1. Parametric terms for the variables `language` (English or Spanish) and `vowel duration` [@tamminga2015cross] were included to model mean differences in A1-P0. Smooth terms over `percent vowel` and `percent vowel` with the by-variable `language` were included to model non-linear trajectories of A1-P0 in each language. This model was set up so that the `percent variable by language` term represents the *difference* between Spanish and English, which can directly inform about significant differences between the shapes of the two trajectories, as opposed to if two smooths were fit for both languages [@soskuthy2017generalised].
+
+Two similar models were fit to address Research Question 2. The first model reported was fit on the English data. Parametric terms for the variables `vowel duration` [@tamminga2015cross] and `Bilingual Language Profile (BLP) score` were included to model mean changes in A1-P0. Smooths terms over `percent vowel` and `percent vowel` with the by-variable `BLP score` were included to model non-linear trajectories of A1-P0 over time and by language dominance. The second model was fit similarly, except `vowel duration` not included as a parametric term because it was not found to be significant.
+
+Statistical inference was completed through model comparisons using `compareML()`, p-values ($\alpha$ = 0.05) obtained from model outputs with the `summary()` function, and visual inspection of plots generated with `plot_diff()` and `plot_smooth()` [@itsadug2025r].
 
 [^2]: More information on model comparisons can be found here: https://github.com/RobertEspo/bi_coart_nasal.
 
 # Results
 
+The following section reviews the models previously described. It is important to note that more negative values of A1-P0 indicate greater degree of nasalization.
 
+## Across-Language Comparisons of A1-P0
+
+@tbl-rq1-param and @tbl-rq1-smooth show the outputs from the model for parametric and smooth terms, respectively. The parametric difference term, `language.ordSpanish`, indicates that the overall mean for A1-P0 in Spanish is significantly higher than in English (represented by the intercept). Similarly, the difference smooth `s(point_vwlpct):language.ordSpanish` shows a significant difference, indicating a significance difference in shape of A1-P0 across normalized time in /a/ across English and Spanish.
 
 ```{r}
-#| label: fig-results
-#| echo: false
-#| fig-cap: Standardized A1-P0 values for VC (left) and VN (right) syllables for standardized Bilingual Language Profile scores.
+#| label: tbl-rq1-param
+#| tbl-cap: Parametric terms for the model comparing A1-P0 across Spanish and English. English is the reference level. The difference term, `language.ordSpanish`, indicates that there is a significant difference in mean overall mean of A1-P0 across the two languages.
 
+rq1_param_ft <- flextable(gam_rq1_ar1_param_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq1_param_ft
 
 ```
 
+```{r}
+#| label: tbl-rq1-smooth
+#| tbl-cap: Smooth terms for the model comparing A1-P0 across Spanish and English. English is the reference level. The difference term, `s(point_vwlpct):language.ordSpanish`, indicates that there is a significant difference in trajectory of A1-P0 across the two languages.
 
+rq1_smooth_ft <- flextable(gam_rq1_ar1_smooth_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq1_smooth_ft
+
+```
+
+@fig-rq1-smooths plots the smooths for fitted A1-P0 values in Spanish and English. Visual inspection indicates that Spanish displays overall less nasalization than English across the entirety of the vowel, but the estimates peak at different time points. Spanish A1-P0 peaks at `r round(peaks_smooth[2,2],2)`% of the vowel at `r round(peaks_smooth[2,3],2)` dB; English A1-P0 peaks at `r round(peaks_smooth[1,2],2)`% of the vowel at `r round(peaks_smooth[1,3],2)` dB. From those points onward, A1-P0 slopes downward. Visually, Spanish A1-P0 has a steeper slope than English, but still remains at an overall higher vowel to the end of the vowel.
+
+@fig-rq1-diff plots the difference in A1-P0 values between Spanish and English, with English as the baseline (that is, Spanish values are subtracted from English). The trajectory does not intersect 0, indicating a significant difference in A1-P0 trajectory across English and Spanish. Spanish is overall more positive than English, with the greatest divergence occurring at `r round(valley_diff[1,1],2)`% of the vowel with an estimated difference in A1-P0 of `r round(valley_diff[1,1],2)` dB. Comparing @fig-rq1-smooths and @fig-rq1-diff indicates that as the end of the vowel is approached, Spanish A1-P0 lowers to approach English values, but remains significantly different from English as indicated by the confidence interval in @fig-rq1-diff not intersecting 0.
+
+```{r}
+#| label: fig-rq1-smooths
+#| echo: false
+#| fig-cap: Smooths of A1-P0 in English (blue) and Spanish (yellow) over normalized time in a vowel. The intersection of vertical and horizontal lines with the smooths indicate peak location for A1-P0. 
+
+knitr::include_graphics(
+  here("figs", "p_rq1_smooths.png")
+  )
+
+```
+
+```{r}
+#| label: fig-rq1-diff
+#| echo: false
+#| fig-cap: Smooths of A1-P0 in English (blue) and Spanish (yellow) over normalized time in a vowel. The intersection of the vertical and horizontal lines on the smooth indicate the greatest divergence point of A1-P0 between English and Spanish.
+
+knitr::include_graphics(
+  here("figs", "p_rq1_diff.png")
+  )
+
+```
+
+## Effects of Language Dominance on A1-P0
+
+The following two sections report the models used to test the effects of language dominance on A1-P0. First, the English-only model will be considered, and then the Spanish-only model. For plots, given the distribution of BLP scores in the sample (see @fig-dominance), predicted A1-P0 values for BLP scores of -75 (Spanish-dominant), 0 (balanced), and 75 (English-dominant) were used, although these values are fairly arbitrary. That is to say, the full range of BLP scores is -218 (Spanish-dominant) to 218 (English-dominant), but the sample had a score range of `r round((dominance_distribution$interviewee_final_blp_score %>% range())[1],2)` to `r round((dominance_distribution$interviewee_final_blp_score %>% range())[2],2)`, with a skew towards positive scores.
+
+### English
+
+The model output's parametric and smooth terms are displayed in @tbl-rq2-en-param and @tbl-rq2-en-smooth, respectively. The parametric term `interviewee_final_blp_score` indicates that there is no significant linear effect of language dominance, as measured by the Bilingual Language Profile (BLP), on A1-P0 values. The smooth term `ti(point_vwlpct):interviewee_final_blp_score` is similarly non-significant, indicating that there is no significant non-linear effect of language dominance on A1-P0 values.
+
+```{r}
+#| label: tbl-rq2-en-param
+#| tbl-cap: Parametric terms for the model considering the impact of language dominance, as measured by the Bilingual Language Profile (BLP), on A1-P0 in English. The p-value for the varibale `interviewee_final_blp_score` above 0.05 indicates that the effect is non-significant.
+
+rq2_en_param_ft <- flextable(gam_rq2_en_ar1_param_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq2_en_param_ft
+
+```
+
+```{r}
+#| label: tbl-rq2-en-smooth
+#| tbl-cap: Smooth terms for the model considering the impact of language dominance, as measured by the Bilingual Language Profile (BLP), on A1-P0 in English. The p-value for the varibale `ti(point_vwlpct):interviewee_final_blp_score` above 0.05 indicates that the effect is non-significant.
+
+rq2_en_smooth_ft <- flextable(gam_rq2_en_ar1_smooth_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq2_en_smooth_ft
+
+```
+
+@fig-rq2-en-smooths plots three smooths for language dominance. These must be interpreted with caution, as neither the parametric nor the smooth effect for language dominance was found to be significant. Inspecting the plot, the three dominance levels converge at `r round(gam_rq2_en_ar1_dominance_effect_df_convergence_points[1,1],2)`% and `r round(gam_rq2_en_ar1_dominance_effect_df_convergence_points[2,1],2)`% of the vowel. In between those two points, A1-P0 estimates go from highest to lowest for English-dominant, balanced, and then Spanish-dominant bilinguals.
+
+```{r}
+#| label: fig-rq2-en-smooths
+#| echo: false
+#| fig-cap: Smooths representing A1-P0 values in English conditioned on language dominance at three levels. Spanish-dominant (BLP = -75), balanced (BLP = 0), and English-dominant (BLP = 75).
+
+knitr::include_graphics(
+  here("figs", "p_rq2_english_smooths.png")
+  )
+
+```
+
+### Spanish
+
+The model output's parametric and smooth terms are displayed in @tbl-rq2-es-param and @tbl-rq2-es-smooth, respectively. As was the case for the model fit to English data, the Spanish data similarly shows no significant effect for language dominance, as measured with the Bilingual Language Profile (BLP).
+
+```{r}
+#| label: tbl-rq2-es-param
+#| tbl-cap: Parametric terms for the model considering the impact of language dominance, as measured by the Bilingual Language Profile (BLP), on A1-P0 in Spanish The p-value for the varibale `interviewee_final_blp_score` above 0.05 indicates that the effect is non-significant.
+
+rq2_es_param_ft <- flextable(gam_rq2_es_ar1_param_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq2_es_param_ft
+
+```
+
+```{r}
+#| label: tbl-rq2-es-smooth
+#| tbl-cap: Smooth terms for the model considering the impact of language dominance, as measured by the Bilingual Language Profile (BLP), on A1-P0 in Spanish The p-value for the varibale `ti(point_vwlpct):interviewee_final_blp_score` above 0.05 indicates that the effect is non-significant.
+
+rq2_es_smooth_ft <- flextable(gam_rq2_es_ar1_smooth_df) %>%
+  colformat_double(digits = 2) %>%
+  bold(part = "header") %>%
+  autofit()
+
+rq2_es_smooth_ft
+
+```
+
+@fig-rq2-es-smooths plots three smooths for language dominance, which against must be interpreted cautiously, as no significant effect for language dominance was found. Inspecting the plot, the three dominance levels converge at `r round(gam_rq2_es_ar1_dominance_effect_df_convergence_points[1,1],2)`% of the vowel. Before this point, Spanish-dominant bilinguals participants show the highest A1-P0 values, followed by balanced bilinguals, and then English-dominant bilinguals. After the convergence point, Spanish-dominant and English-dominant smooths switch positions.
+
+```{r}
+#| label: fig-rq2-es-smooths
+#| echo: false
+#| fig-cap: Smooths representing A1-P0 values in Spanish conditioned on language dominance at three levels. Spanish-dominant (BLP = -75), balanced (BLP = 0), and English-dominant (BLP = 75).
+
+knitr::include_graphics(
+  here("figs", "p_rq2_spanish_smooths.png")
+  )
+
+```
 
 # Discussion
 
-The present study combines articulatory phonology, sociolinguistics, and bilingualism to better understand whether or not language-specific gestural timing is stored in the bilingual brain, and if so, if language dominance impacts that storage. Specifically, coarticulatory vowel nasalization of /a/ was examined using the acoustic measure A1-P0. 
+The present study combines articulatory phonology, sociolinguistics, and bilingualism to better understand whether or not language-specific gestural timing is stored in the bilingual brain, and if so, if language dominance impacts that storage. Specifically, coarticulatory vowel nasalization of /a/ was examined using the acoustic measure A1-P0 in simultaneous and early sequential bilinguals in the Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus.
 
-With the current dataset, the first research question cannot be answered. The latter two research questions, on the other hand, can be examined in light of the findings.
+The first research question was *Do bilinguals produce language-specific timing patterns of nasal gestures in English and Spanish?* Based on the statistical model, this can be answered affirmatively. Different timing patterns for nasal gestures were found for English and Spanish, in line with previous research [@beristain2023airflow]. This indicates that even though vowel nasalization is non-contrastive in Spanish and English, coarticulatory patterns are still stored in the bilingual phonological system.
 
-Regarding language dominance, the CASP model predicts that the [maximize common ground]{.smallcaps} and [maximize expressive power]{.smallcaps} principles are modulated by language dominance, such that balanced bilinguals will show greater maintenance of language-specific patterns. @beristain2023airflow did not find strong evidence that language dominance strongly predicted degree of nasalization in each language. However, the author's study included only 16 participants, as opposed to the current study which includes 150. Preliminary analysis suggests that, contrary to @beristain2023airflow['s] main findings, language dominance does impact coarticulatory vowel nasalization, such that Spanish-dominant bilinguals pattern distinctly from English-dominant and balanced bilinguals at the midpoint of the vowel, and all three groups are distinguished beyond the 75% point of the vowel. Specifically, Spanish-dominant bilinguals show less nasalization than English-dominant and balanced bilinguals until the 75% point, at which point Spanish-dominant bilinguals show the most nasalization, followed by balanced bilinguals, and finally English-dominant bilinguals. A possible explanation for this patterning is that English-dominant bilinguals are more likely to maintain oral airflow leading into the nasal consonant due to the phonological nature of vowel nasalization in English.
+The second research question was *Does language dominance predict degree of nasalization in each language in /aN/ sequences?* The statistical models indicate that language dominance does not predict degree of nasalization in either language. Although this is in line with previous empirical research [@beristain2023airflow], the opposite was hypothesized due to low variation in language dominance scores in the previous research, as well as theoretical motivation from the Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @hawkins2024bilingualism]. The CASP model predicts that balanced bilinguals will show language-specific timing patterns, but that unbalanced bilinguals are more likely to [maximize common ground]{.smallcaps} between both of their languages. It was predicted, then, that non-contrastive articulatory timing, such as coarticulatory vowel nasalization, would be subject to convergence between the two languages for unbalanced bilinguals.
 
-Moving onto the individual effect patterns of each nasal consonant on the preceding vowel, it is seen that /m/ and /n/ pattern similarly to one another, but the palatal and velar nasal consonants diverge. The palatal nasal in particular starkly contrasts with the other three segments in the first 50% of the vowel. Currently, it is unable to be determined if nasal consonants possibly are overrepresented as the previous segment, which would cause the sharp dip in A1-P0 at the beginning of the vowel. 
+The findings regarding language dominance's lack of effect on coarticulatory nasalization timing patterns goes against the CASP model's predictions. It should be noted that the CASP model has not yet been explicitly tested on phonetic or phonological data, indicating that the model's predictions may not be appropriate for such data, as opposed to other domains of language.
 
 ## Limitations and Future Directions
 
-The present study has a number of limitations. BLP metric is skewed towards English-dominance. Using standardized values means that we are looking at language dominance within the sample, not in general. To look outside the sample, we would need to look at the raw scores or get a more balanced sample. Perhaps such can be obtained by looking at the entire corpus.
+The present study has a number of limitations, which are explored below. The Bilingual Language Profile (BLP) scores are skewed towards English-dominance, and the range is rather limited compared to the full possible range of scores.
 
-Currently, the present study limits itself to /a/ productions of female-identifying bilinguals. The corpus includes male-identifying individuals, and of course the whole gamut of vowels in both English and Spanish. As such, future work should move to include the rest of the corpus.
+Currently, the present study limits itself to productions of /p t k/ + /a/ + /m n/ in female-identifying bilinguals. The corpus includes male-identifying individuals, and of course the whole gamut of vowel-nasal /VN/ sequences in both English and Spanish. As such, future work should move to include the rest of the corpus.
 
-Regarding the vowel choice, /a/ was chosen because it had the best performance for A1-P0. A1-P0, unfortunately, performs very poorly for high vowels. Given such, it would be best to find another method, such as machine training through `xgboost` [@chen2016xgboost], to incorporate a number of acoustic measures that correlate with nasality [@carignan2021practical].
+Regarding the vowel choice, /a/ was chosen because it had the best performance for A1-P0, whereas it performs poorly for high vowels. This reduces the possibility of examining the full extent of the available data. Furthermore, A1-P0 remains fairly opaque as an acoustic correlate of the articulatory movement of lowering the velum. It does correlate with nasal airflow [@zellou2012similarity] and nasal consonant perception [@zellou2014gradient], but other aspects of speech production may affect it. Given such, it would be best to find another method, such as machine learning through `xgboost` [@chen2016xgboost], to incorporate a number of acoustic measures that correlate with nasality [@carignan2021practical].
 
-Finally, there are quite a number of transcription errors that must be corrected, as well as English words in the Spanish interviews that must be reviewed (and most likely excluded). In terms of long-term health of the corpus, it would be best to make the corrections in the `.TextGrid` files themselves. However, these corrected files would not be reuploaded to the corpus, but only kept locally, making the reach of the corrections not extend much beyond the present researcher. A possibly faster solution would be to extract words that include the token, plus the words before and after the word to which the token belongs, and then correct the alignment in that smaller file.
+An inherent difficulty with data from sociolinguistic interviews, and field data is general, is that the acoustic data noisier than laboratory data [@face2003intonation]. Not only may participants actually speak differently, but the recordings may be of lesser audio quality, making extraction of acoustic features less reliable. However, the amount of data obtained in a more-or-less natural environment is seen as a valuable compromise.
 
 ## Conclusion
+
+The present study reported on the impact of language dominance on language-specific timing patterns of coarticulatory vowel nasalization, measured with A1-P0 over the time course of a vowel, in Spanish-English bilinguals in the Multilingual Hispanic Speech in California [MuHSiC; @amengual2026muhsic] corpus. Bilinguals were found to produce language-specific timing patterns, but language dominance not have a significant linear or non-linear effect on A1-P0 over the course of the vowel. This goes against predictions of the Complex Adaptive System Principles (CASP) model [@filipovic2019complex; @hawkins2024bilingualism], suggesting that the model may not accurately predict phonetic phenomena in bilinguals.
 
 # References
 

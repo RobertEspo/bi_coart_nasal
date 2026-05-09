@@ -1,3 +1,20 @@
+source(here::here("scripts","r","00_libs.R"))
+source(here::here("scripts","r","01_helpers.R"))
+source(here::here("scripts","r","02_load_data.R"))
+source(here::here("scripts","r","05_plots.R"))
+
+
+# Bilingual language profile descriptive stats
+
+dominance_distribution <- dat_female_tidy %>%
+  group_by(participant) %>%
+  summarise(
+    interviewee_final_blp_score = first(interviewee_final_blp_score)
+  ) %>%
+  ungroup()
+
+################################################################################
+
 # load interviewer/interviewee metadata 
 metadata <- read_csv(here("data","metadata.csv"))
 
@@ -46,7 +63,32 @@ mex_origin <- metadata %>%
   ) %>%
   as.data.frame()
 
-num_interviewees <- sp_dat_tidy %>%
+num_interviewees <- dat_female_tidy %>%
   summarize(
     n_participants = n_distinct(participant)
   ) %>% as.data.frame()
+
+# GAMs outputs
+# produces the following dfs:
+## [model_name]_param_df
+## [model_name]_smooth_df
+## [model_name]_summary_df
+
+model_summary_table(gam_rq1_ar1)
+
+model_summary_table(gam_rq2_en_ar1)
+
+model_summary_table(gam_rq2_es_ar1)
+
+###############################################################################
+
+### Find where estimates converge for gam_rq2_en/es_ar1
+# You have to run 05_plots.R to get the necessary dfs
+
+# English
+
+find_dominance_convergence(gam_rq2_en_ar1_dominance_effect_df)
+
+# Spanish
+
+find_dominance_convergence(gam_rq2_es_ar1_dominance_effect_df)

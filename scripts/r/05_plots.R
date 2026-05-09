@@ -1,6 +1,6 @@
-# dominance distribution in sample
+### dominance distribution in sample ###
 
-dominance_distribution <- sp_dat_tidy %>%
+p_dominance_distribution <- dat_female_tidy %>%
   group_by(participant) %>%
   summarise(
     interviewee_final_blp_score = first(interviewee_final_blp_score)
@@ -24,51 +24,115 @@ dominance_distribution <- sp_dat_tidy %>%
   labs(x = NULL, y = "Bilingual Language Profile score", color = "Bilingual Language \nProfile score") +
   ds4ling::ds4ling_bw_theme(base_size = 12)
 
-ggsave(here("figs","dominance_distribution.png"), 
-       plot = dominance_distribution, 
-       width = 10, height = 15, dpi = 300)
+ggsave(here("figs","p_dominance_distribution.png"), 
+       plot = p_dominance_distribution, 
+       width = 10, height = 10, dpi = 300)
 
-# get dominance scores
-blp_summary <- sp_dat_tidy %>%
-  distinct(participant, interviewee_final_blp_score) %>%
-  mutate(
-    group = ntile(interviewee_final_blp_score, 3)
-  ) %>%
-  group_by(group) %>%
-  summarise(
-    mean_blp = mean(interviewee_final_blp_score),
-    median_blp = median(interviewee_final_blp_score),
-    min_blp = min(interviewee_final_blp_score),
-    max_blp = max(interviewee_final_blp_score),
-    n = n()
+###############################################################################
+### RQ1 Plots ###
+
+# Smooths for English & Spanish
+
+if (TRUE) {
+png(here("figs","p_rq1_smooths.png"), width = 15, height = 15, units = "in", res = 300)
+
+  peaks_smooth <- as.data.frame(plot_smooth(
+    gam_rq1_ar1,
+    view="point_vwlpct",
+    plot_all="language.ord",
+    col = c("#0072B2","#E69F00"))$fv) %>%
+    group_by(language.ord) %>%
+    slice_max(fit, n = 1, with_ties = TRUE) %>%
+    summarise(
+      peak_vwlpct = mean(point_vwlpct),
+      peak_fit = max(fit),
+      .groups = "drop"
+    )
+  
+  plot_smooth(
+    gam_rq1_ar1,
+    view="point_vwlpct",
+    plot_all="language.ord",
+    col = c("#0072B2","#E69F00"),
+    v0=peaks_smooth$peak_vwlpct,
+    h0=peaks_smooth$peak_fit,
+    ylim=c(-8,-2)
   )
 
-# plot smooths based on scores above
-plot_smooths_dominance(m_gam_ar1,
-                       blp_summary[1,3] %>% pull(),
-                       blp_summary[2,3] %>% pull(),
-                       blp_summary[3,3] %>% pull(),
-                       0)
+dev.off()
 
-# or define dominance as -75, 0, 75
-plot_smooths_dominance(m_gam_ar1,
-                       -75,
-                       0,
-                       75,
-                       0)
+}
+
+# Diff plot Spanish - English
+
+if (TRUE) {
+png(here("figs","p_rq1_diff.png"), width = 15, height = 15, units = "in", res = 300)
+
+  valley_diff <- as.data.frame(
+    plot_diff(
+      gam_rq1_ar1,
+      view = "point_vwlpct",
+      comp = list(language.ord = c("English", "Spanish")),
+      mark.diff = FALSE
+    )
+  ) %>%
+    slice_min(est, n = 1, with_ties = TRUE) %>%
+    summarise(
+      valley_vwlpct = mean(point_vwlpct),
+      valley_est = min(est),
+      .groups = "drop"
+    )
+  
+  plot_diff(
+    gam_rq1_ar1,
+    view="point_vwlpct",
+    comp=list(language.ord=c("English","Spanish")),
+    mark.diff = FALSE,
+    v0=valley_diff[1,1],
+    h0=valley_diff[1,2]
+  )
+
+dev.off()
+}
+  
+###############################################################################
+### RQ2 Plots ###
+# What scores to plot at is annoying. The sample I have is skewed towards
+# English-dominance, and the range is -144 to 155, so it is quite far
+# from reaching the limits of -218 to 218. Going off z scores (e.g., -1, 0, 1)
+# seems like a bad idea, because that would be relative to my sample, not
+# relative to the actual BLP scale. So for this, I'll go with -75, 0, 75.
+# This seems reasonable given that we have a decent amount of individuals
+# who have values within this range, and they seem far enough apart count
+# as "more dominant" in English vs Spanish.
+
+### Spanish ###
+
+if (TRUE) {
+  png(here("figs","p_rq2_spanish_smooths.png"), width = 15, height = 15, units = "in", res = 300)
+  
+  plot_smooths_dominance(gam_rq2_es_ar1,
+                         -75,
+                         0,
+                         75,
+                         c(-6.5,-1.5))
+  dev.off()
+}
+
+### English ###
+
+if (TRUE) {
+  
+  png(here("figs","p_rq2_english_smooths.png"), width = 15, height = 15, units = "in", res = 300)
+  
+  plot_smooths_dominance(gam_rq2_en_ar1,
+                         -75,
+                         0,
+                         75,
+                         c(-9,-3))
+  dev.off()
+}
 
 
-plot_diff(
-  m_gam_ar1,
-  view = "point_vwlpct",
-  
-  comp = list(
-    interviewee_final_blp_score = c(-100, 100)
-  ),
-  
-  cond = list(
-    vwl_duration_z = 0
-  ),
-  
-  rm.ranef = FALSE
-)
+
+

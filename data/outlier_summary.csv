@@ -1,2 +1,4 @@
-"n_with_outliers_values","n_with_outliers_tokens","n_without_outliers_values","n_without_outliers_tokens","proportion_retained"
-150070,15007,94460,9446,0.629439594855734
+"language","n_values_with","n_tokens_with","n_values_without","n_tokens_without","proportion_retained"
+"English",7850,785,5130,513,0.653503184713376
+"Spanish",28080,2808,18230,1823,0.649216524216524
+"Total",35930,3593,23360,2336,0.650153075424436
